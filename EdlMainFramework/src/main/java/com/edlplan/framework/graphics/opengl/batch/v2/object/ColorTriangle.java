@@ -1,6 +1,6 @@
 package com.edlplan.framework.graphics.opengl.batch.v2.object;
 
-import com.edlplan.framework.graphics.opengl.objs.Color4;
+import com.edlplan.framework.math.Color4;
 import com.edlplan.framework.math.Vec2;
 import com.edlplan.framework.math.Vec3;
 import com.edlplan.framework.utils.FloatRef;

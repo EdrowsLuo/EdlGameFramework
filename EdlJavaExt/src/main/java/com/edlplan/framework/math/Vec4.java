@@ -1,7 +1,5 @@
 package com.edlplan.framework.math;
 
-import com.edlplan.framework.graphics.opengl.objs.Color4;
-
 public class Vec4 extends Color4 {
     public Vec4(float x, float y, float z, float w) {
         set(x, y, z, w);

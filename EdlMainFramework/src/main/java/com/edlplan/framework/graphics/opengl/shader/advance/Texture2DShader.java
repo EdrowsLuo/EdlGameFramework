@@ -4,7 +4,7 @@ import android.opengl.GLES20;
 
 import com.edlplan.framework.graphics.opengl.Camera;
 import com.edlplan.framework.graphics.opengl.objs.AbstractTexture;
-import com.edlplan.framework.graphics.opengl.objs.Color4;
+import com.edlplan.framework.math.Color4;
 import com.edlplan.framework.graphics.opengl.shader.GLProgram;
 import com.edlplan.framework.graphics.opengl.shader.ShaderGlobals;
 import com.edlplan.framework.graphics.opengl.shader.VertexAttrib;

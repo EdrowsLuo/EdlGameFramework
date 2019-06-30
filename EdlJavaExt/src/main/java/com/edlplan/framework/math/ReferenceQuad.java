@@ -1,7 +1,6 @@
 package com.edlplan.framework.math;
 
 import com.edlplan.framework.math.its.IVec2;
-import com.edlplan.framework.ui.Anchor;
 
 public class ReferenceQuad {
     public IVec2 topLeft;

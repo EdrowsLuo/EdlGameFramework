@@ -8,6 +8,7 @@ import android.graphics.Paint;
 import android.opengl.GLES20;
 import android.opengl.GLUtils;
 
+import com.edlplan.framework.math.Color4;
 import com.edlplan.framework.resource.AResource;
 import com.edlplan.framework.MContext;
 import com.edlplan.framework.graphics.opengl.GLWrapped;

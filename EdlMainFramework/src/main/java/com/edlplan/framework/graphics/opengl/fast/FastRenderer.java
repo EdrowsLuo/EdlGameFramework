@@ -4,7 +4,7 @@ import android.opengl.GLES20;
 
 import com.edlplan.framework.graphics.opengl.buffer.BufferUtil;
 import com.edlplan.framework.graphics.opengl.objs.AbstractTexture;
-import com.edlplan.framework.graphics.opengl.objs.Color4;
+import com.edlplan.framework.math.Color4;
 import com.edlplan.framework.graphics.opengl.objs.GLTexture;
 import com.edlplan.framework.graphics.opengl.BaseCanvas;
 import com.edlplan.framework.graphics.opengl.BlendType;

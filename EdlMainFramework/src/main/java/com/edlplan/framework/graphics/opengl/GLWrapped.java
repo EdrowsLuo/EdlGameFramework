@@ -6,7 +6,7 @@ import android.util.Log;
 
 import com.edlplan.framework.graphics.opengl.batch.v2.BatchEngine;
 import com.edlplan.framework.graphics.opengl.bufferObjects.FBOPool;
-import com.edlplan.framework.graphics.opengl.objs.Color4;
+import com.edlplan.framework.math.Color4;
 import com.edlplan.framework.graphics.opengl.objs.GLTexture;
 import com.edlplan.framework.utils.interfaces.Setter;
 import com.edlplan.framework.utils.advance.BooleanSetting;

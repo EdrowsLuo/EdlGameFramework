@@ -3,7 +3,7 @@ package com.edlplan.framework.ui.drawable.sprite;
 import com.edlplan.framework.MContext;
 import com.edlplan.framework.graphics.opengl.BaseCanvas;
 import com.edlplan.framework.graphics.opengl.BlendType;
-import com.edlplan.framework.graphics.opengl.objs.Color4;
+import com.edlplan.framework.math.Color4;
 
 public abstract class Sprite<S extends SpriteShader> extends AbstractSprite {
 

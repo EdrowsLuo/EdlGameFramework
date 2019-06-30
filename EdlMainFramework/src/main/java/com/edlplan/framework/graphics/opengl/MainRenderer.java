@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.View.OnTouchListener;
 
 import com.edlplan.framework.graphics.opengl.bufferObjects.FrameBufferObject;
-import com.edlplan.framework.graphics.opengl.objs.Color4;
+import com.edlplan.framework.math.Color4;
 import com.edlplan.framework.MContext;
 import com.edlplan.framework.graphics.layer.BufferedLayer;
 import com.edlplan.framework.graphics.layer.DefBufferedLayer;

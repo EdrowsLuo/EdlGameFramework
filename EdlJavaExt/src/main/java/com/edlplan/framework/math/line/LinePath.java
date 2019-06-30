@@ -1,4 +1,4 @@
-package com.edlplan.framework.graphics.line;
+package com.edlplan.framework.math.line;
 
 import com.edlplan.framework.math.RectF;
 import com.edlplan.framework.math.Vec2;

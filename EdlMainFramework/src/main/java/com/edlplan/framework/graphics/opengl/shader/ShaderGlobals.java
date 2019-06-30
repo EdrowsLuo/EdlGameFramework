@@ -1,7 +1,7 @@
 package com.edlplan.framework.graphics.opengl.shader;
 
 import com.edlplan.framework.graphics.opengl.Camera;
-import com.edlplan.framework.graphics.opengl.objs.Color4;
+import com.edlplan.framework.math.Color4;
 
 public class ShaderGlobals {
 

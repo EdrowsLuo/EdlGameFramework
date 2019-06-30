@@ -1,4 +1,4 @@
-package com.edlplan.framework.graphics.line.approximator;
+package com.edlplan.framework.math.line.approximator;
 
 import com.edlplan.framework.math.FMath;
 import com.edlplan.framework.math.Vec2;

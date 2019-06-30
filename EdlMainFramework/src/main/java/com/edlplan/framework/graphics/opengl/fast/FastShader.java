@@ -1,7 +1,7 @@
 package com.edlplan.framework.graphics.opengl.fast;
 
 import com.edlplan.framework.graphics.opengl.objs.AbstractTexture;
-import com.edlplan.framework.graphics.opengl.objs.Color4;
+import com.edlplan.framework.math.Color4;
 import com.edlplan.framework.graphics.opengl.shader.GLProgram;
 import com.edlplan.framework.graphics.opengl.shader.VertexAttrib;
 import com.edlplan.framework.graphics.opengl.shader.advance.BaseShader;

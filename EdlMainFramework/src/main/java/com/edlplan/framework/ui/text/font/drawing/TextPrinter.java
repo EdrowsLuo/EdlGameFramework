@@ -4,7 +4,7 @@ import com.edlplan.framework.graphics.opengl.BaseCanvas;
 import com.edlplan.framework.graphics.opengl.batch.v2.BatchEngine;
 import com.edlplan.framework.graphics.opengl.batch.v2.object.PackedTriangles;
 import com.edlplan.framework.graphics.opengl.batch.v2.object.TextureTriangle;
-import com.edlplan.framework.graphics.opengl.objs.Color4;
+import com.edlplan.framework.math.Color4;
 import com.edlplan.framework.graphics.opengl.shader.advance.Texture3DShader;
 import com.edlplan.framework.math.IQuad;
 import com.edlplan.framework.math.RectF;

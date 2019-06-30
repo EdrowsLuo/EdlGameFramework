@@ -1,13 +1,10 @@
 package com.edlplan.framework.math;
 
 import com.edlplan.framework.math.its.IVec2;
-import com.edlplan.framework.ui.animation.interpolate.Interplateable;
-import com.edlplan.framework.ui.animation.interpolate.ValueInterpolator;
-import com.edlplan.framework.ui.animation.interpolate.Vec2Interpolator;
 
 import java.nio.FloatBuffer;
 
-public class Vec2 implements Interplateable<Vec2>, IVec2 {
+public class Vec2 implements IVec2 {
     public static final int FLOATS = 2;
 
     public static final Vec2 BASE_POINT = new Vec2(0, 0);
@@ -283,12 +280,6 @@ public class Vec2 implements Interplateable<Vec2>, IVec2 {
 
     public Vec2 copy() {
         return new Vec2(this);
-    }
-
-    @Override
-    public ValueInterpolator<Vec2> getInterpolator() {
-
-        return Vec2Interpolator.Instance;
     }
 
     public Vec3 toVec3(float z) {

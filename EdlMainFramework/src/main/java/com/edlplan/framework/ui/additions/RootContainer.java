@@ -2,7 +2,7 @@ package com.edlplan.framework.ui.additions;
 
 import com.edlplan.framework.ui.layout.EdMeasureSpec;
 import com.edlplan.framework.MContext;
-import com.edlplan.framework.graphics.opengl.objs.Color4;
+import com.edlplan.framework.math.Color4;
 import com.edlplan.framework.ui.EdBufferedContainer;
 import com.edlplan.framework.ui.EdView;
 import com.edlplan.framework.ui.layout.EdLayoutParam;

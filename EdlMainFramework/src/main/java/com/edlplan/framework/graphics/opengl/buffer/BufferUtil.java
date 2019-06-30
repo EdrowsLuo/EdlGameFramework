@@ -1,6 +1,6 @@
 package com.edlplan.framework.graphics.opengl.buffer;
 
-import com.edlplan.framework.graphics.opengl.objs.Color4;
+import com.edlplan.framework.math.Color4;
 
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;

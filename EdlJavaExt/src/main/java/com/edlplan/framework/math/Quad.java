@@ -1,7 +1,5 @@
 package com.edlplan.framework.math;
 
-import com.edlplan.framework.ui.Anchor;
-
 public class Quad implements IQuad {
     public final Vec2 topLeft = new Vec2();
     public final Vec2 topRight = new Vec2();

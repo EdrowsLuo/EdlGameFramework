@@ -1,6 +1,4 @@
-package com.edlplan.framework.ui;
-
-import com.edlplan.framework.math.Vec2;
+package com.edlplan.framework.math;
 
 public class Anchor {
     public static final int ID_CUSTOM = 9;

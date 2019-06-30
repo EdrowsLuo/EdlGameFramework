@@ -1,6 +1,6 @@
 package com.edlplan.framework.graphics.opengl.buffer.direct;
 
-import com.edlplan.framework.graphics.opengl.objs.Color4;
+import com.edlplan.framework.math.Color4;
 
 public abstract class Vec4Pointer {
     public void set(Color4 c) {

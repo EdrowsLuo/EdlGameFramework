@@ -1,8 +1,8 @@
 package com.edlplan.framework.graphics.opengl.batch.v2.object;
 
 import com.edlplan.framework.graphics.opengl.objs.AbstractTexture;
-import com.edlplan.framework.graphics.opengl.objs.Color4;
-import com.edlplan.framework.ui.Anchor;
+import com.edlplan.framework.math.Color4;
+import com.edlplan.framework.math.Anchor;
 import com.edlplan.framework.math.RectF;
 import com.edlplan.framework.math.Vec2;
 import com.edlplan.framework.utils.FloatRef;

@@ -6,7 +6,7 @@ import com.edlplan.framework.graphics.layer.BufferedLayer;
 import com.edlplan.framework.graphics.opengl.BlendType;
 import com.edlplan.framework.graphics.opengl.GLCanvas2D;
 import com.edlplan.framework.graphics.opengl.objs.AbstractTexture;
-import com.edlplan.framework.graphics.opengl.objs.Color4;
+import com.edlplan.framework.math.Color4;
 import com.edlplan.framework.graphics.opengl.objs.GLTexture;
 import com.edlplan.framework.graphics.opengl.shader.advance.ColorShader;
 import com.edlplan.framework.graphics.shape.IHasPath;

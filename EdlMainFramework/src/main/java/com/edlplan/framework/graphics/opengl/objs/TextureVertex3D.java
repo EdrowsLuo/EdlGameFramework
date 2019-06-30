@@ -1,5 +1,6 @@
 package com.edlplan.framework.graphics.opengl.objs;
 
+import com.edlplan.framework.math.Color4;
 import com.edlplan.framework.math.Vec2;
 import com.edlplan.framework.math.Vec3;
 

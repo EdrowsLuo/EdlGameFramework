@@ -1,7 +1,7 @@
 package com.edlplan.framework.ui;
 
 import com.edlplan.framework.graphics.opengl.BaseCanvas;
-import com.edlplan.framework.graphics.opengl.objs.Color4;
+import com.edlplan.framework.math.Color4;
 import com.edlplan.framework.ui.additions.FrameListener;
 import com.edlplan.framework.ui.animation.AbstractAnimation;
 import com.edlplan.framework.ui.animation.AnimationHandler;

@@ -4,7 +4,7 @@ import com.edlplan.framework.graphics.opengl.batch.v2.BatchEngine;
 import com.edlplan.framework.graphics.opengl.batch.v2.object.AnyQuadTextureQuad;
 import com.edlplan.framework.graphics.opengl.batch.v2.object.PackedColorTriangles;
 import com.edlplan.framework.graphics.opengl.objs.AbstractTexture;
-import com.edlplan.framework.graphics.opengl.objs.Color4;
+import com.edlplan.framework.math.Color4;
 import com.edlplan.framework.graphics.opengl.objs.GLTexture;
 import com.edlplan.framework.graphics.shape.IPath;
 import com.edlplan.framework.graphics.shape.Path;

@@ -8,6 +8,7 @@ import com.edlplan.framework.MContext;
 import com.edlplan.framework.graphics.layer.BufferedLayer;
 import com.edlplan.framework.graphics.opengl.GLCanvas2D;
 import com.edlplan.framework.graphics.opengl.GLWrapped;
+import com.edlplan.framework.math.Color4;
 import com.edlplan.framework.math.IQuad;
 import com.edlplan.framework.math.Quad;
 import com.edlplan.framework.math.RectF;

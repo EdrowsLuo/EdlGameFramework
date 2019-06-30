@@ -8,7 +8,7 @@ import com.edlplan.framework.graphics.layer.BufferedLayer;
 import com.edlplan.framework.graphics.opengl.GLCanvas2D;
 import com.edlplan.framework.graphics.opengl.GLWrapped;
 import com.edlplan.framework.graphics.opengl.objs.AbstractTexture;
-import com.edlplan.framework.graphics.opengl.objs.Color4;
+import com.edlplan.framework.math.Color4;
 import com.edlplan.framework.graphics.opengl.objs.GLTexture;
 import com.edlplan.framework.math.RectF;
 import com.edlplan.framework.ui.looper.ExpensiveTask;

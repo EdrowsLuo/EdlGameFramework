@@ -1,6 +1,6 @@
 package com.edlplan.framework.ui.animation.interpolate;
 
-import com.edlplan.framework.graphics.opengl.objs.Color4;
+import com.edlplan.framework.math.Color4;
 import com.edlplan.framework.ui.animation.Easing;
 
 public class Color4Interpolator implements ValueInterpolator<Color4> {

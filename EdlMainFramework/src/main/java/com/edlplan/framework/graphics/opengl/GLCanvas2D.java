@@ -1,7 +1,7 @@
 package com.edlplan.framework.graphics.opengl;
 
 import com.edlplan.framework.graphics.opengl.batch.v2.BatchEngine;
-import com.edlplan.framework.graphics.opengl.objs.Color4;
+import com.edlplan.framework.math.Color4;
 import com.edlplan.framework.graphics.opengl.objs.GLTexture;
 import com.edlplan.framework.MContext;
 import com.edlplan.framework.graphics.layer.BufferedLayer;
