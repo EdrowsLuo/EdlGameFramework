@@ -1,6 +1,6 @@
 package com.edlplan.framework.graphics.opengl.batch.v2.mesh;
 
-public class ColorMesh implements Mesh{
+public class ColorMesh implements Mesh {
 
     MeshPart colors;
 

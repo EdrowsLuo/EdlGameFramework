@@ -2,9 +2,9 @@ package com.edlplan.framework.graphics.opengl.shader.uniforms;
 
 import android.opengl.GLES20;
 
-import com.edlplan.framework.math.Color4;
 import com.edlplan.framework.graphics.opengl.shader.DataUniform;
 import com.edlplan.framework.graphics.opengl.shader.GLProgram;
+import com.edlplan.framework.math.Color4;
 import com.edlplan.framework.math.RectF;
 import com.edlplan.framework.math.Vec4;
 

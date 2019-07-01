@@ -80,6 +80,7 @@ public class BassChannel {
     }
 
     boolean freed = false;
+
     public boolean free() {
         if (!freed) {
             freed = true;

@@ -1,8 +1,8 @@
 package com.edlplan.framework.ui.additions;
 
-import com.edlplan.framework.ui.additions.popupview.PopupView;
 import com.edlplan.framework.MContext;
 import com.edlplan.framework.ui.EdView;
+import com.edlplan.framework.ui.additions.popupview.PopupView;
 import com.edlplan.framework.ui.layout.Param;
 import com.edlplan.framework.ui.widget.RelativeLayout;
 

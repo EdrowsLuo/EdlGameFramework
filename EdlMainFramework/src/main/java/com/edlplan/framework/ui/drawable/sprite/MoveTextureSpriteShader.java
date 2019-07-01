@@ -10,28 +10,29 @@ public class MoveTextureSpriteShader extends TextureSpriteShader {
     private static MoveTextureSpriteShader instance;
 
     public static MoveTextureSpriteShader get() {
-        if (instance == null) instance = new MoveTextureSpriteShader(VERTEX_SHADER, FRAGMENT_SHADER);
+        if (instance == null)
+            instance = new MoveTextureSpriteShader(VERTEX_SHADER, FRAGMENT_SHADER);
         return instance;
     }
 
     static {
         VERTEX_SHADER = StringUtil.link(StringUtil.LINE_BREAK,
                 "uniform mat4 u_MVPMatrix;\n" +
-                "uniform vec4 u_AccentColor;\n" +
-                "uniform float u_Alpha;\n" +
-                "\n" +
-                "attribute vec3 a_Position;\n" +
-                "attribute vec2 a_SpritePosition;\n" +
-                "attribute vec4 a_Color;\n" +
-                "attribute vec2 a_TextureCoord;\n" +
-                "varying vec4 f_Color;\n" +
-                "varying vec2 f_TextureCoord;\n" +
-                "    " +
-                "void setUpSpriteBase(){\n" +
-                "    f_TextureCoord=a_TextureCoord;\n" +
-                "    f_Color=a_Color*u_AccentColor*u_Alpha;\n" +
-                "    gl_Position=u_MVPMatrix*vec4(a_Position,1.0);\n" +
-                "}",
+                        "uniform vec4 u_AccentColor;\n" +
+                        "uniform float u_Alpha;\n" +
+                        "\n" +
+                        "attribute vec3 a_Position;\n" +
+                        "attribute vec2 a_SpritePosition;\n" +
+                        "attribute vec4 a_Color;\n" +
+                        "attribute vec2 a_TextureCoord;\n" +
+                        "varying vec4 f_Color;\n" +
+                        "varying vec2 f_TextureCoord;\n" +
+                        "    " +
+                        "void setUpSpriteBase(){\n" +
+                        "    f_TextureCoord=a_TextureCoord;\n" +
+                        "    f_Color=a_Color*u_AccentColor*u_Alpha;\n" +
+                        "    gl_Position=u_MVPMatrix*vec4(a_Position,1.0);\n" +
+                        "}",
                 "void main(){ setUpSpriteBase(); }");
         FRAGMENT_SHADER = StringUtil.link(StringUtil.LINE_BREAK,
                 "precision mediump float;",

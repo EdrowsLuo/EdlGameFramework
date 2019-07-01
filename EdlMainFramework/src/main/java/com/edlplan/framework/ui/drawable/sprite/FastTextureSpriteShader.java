@@ -13,13 +13,14 @@ import java.nio.Buffer;
  * 舍弃功能达到较快的绘制速度
  * 对alpha的设置被无效了，请通过AccentColor处理alpha
  */
-public class FastTextureSpriteShader extends TextureSpriteShader{
+public class FastTextureSpriteShader extends TextureSpriteShader {
     public static final String VERTEX_SHADER, FRAGMENT_SHADER;
 
     private static FastTextureSpriteShader instance;
 
     public static FastTextureSpriteShader get() {
-        if (instance == null) instance = new FastTextureSpriteShader(VERTEX_SHADER, FRAGMENT_SHADER);
+        if (instance == null)
+            instance = new FastTextureSpriteShader(VERTEX_SHADER, FRAGMENT_SHADER);
         return instance;
     }
 

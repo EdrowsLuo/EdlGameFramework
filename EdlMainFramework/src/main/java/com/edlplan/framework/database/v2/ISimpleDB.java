@@ -16,7 +16,7 @@ public interface ISimpleDB {
         return query("SELECT * FROM " + tableName);
     }
 
-    default Iterable<DBLine> selectAll(String tableName,String where) throws SimpleSQLException {
+    default Iterable<DBLine> selectAll(String tableName, String where) throws SimpleSQLException {
         return query("SELECT * FROM " + tableName + " WHERE " + where);
     }
 
@@ -24,7 +24,7 @@ public interface ISimpleDB {
         return SimpleDB.reflect(query("SELECT * FROM " + tableName).asOneLine(), klass);
     }
 
-    default  <T> T selectOne(String tableName,String where, Class<T> klass) throws SimpleSQLException {
+    default <T> T selectOne(String tableName, String where, Class<T> klass) throws SimpleSQLException {
         return SimpleDB.reflect(query("SELECT * FROM " + tableName + " WHERE " + where).asOneLine(), klass);
     }
 
@@ -40,7 +40,7 @@ public interface ISimpleDB {
         return new SimpleTable(this, tableName);
     }
 
-    class SimpleTable{
+    class SimpleTable {
 
         private String name;
 

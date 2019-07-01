@@ -2,22 +2,22 @@ package com.edlplan.framework.graphics.opengl;
 
 import com.edlplan.framework.graphics.opengl.batch.v2.BatchEngine;
 import com.edlplan.framework.graphics.opengl.batch.v2.object.AnyQuadTextureQuad;
+import com.edlplan.framework.graphics.opengl.batch.v2.object.ColorTriangle;
 import com.edlplan.framework.graphics.opengl.batch.v2.object.PackedColorTriangles;
+import com.edlplan.framework.graphics.opengl.batch.v2.object.TextureQuad;
+import com.edlplan.framework.graphics.opengl.batch.v2.object.TextureQuadBatch;
 import com.edlplan.framework.graphics.opengl.objs.AbstractTexture;
-import com.edlplan.framework.math.Color4;
 import com.edlplan.framework.graphics.opengl.objs.GLTexture;
+import com.edlplan.framework.graphics.opengl.shader.advance.ColorShader;
 import com.edlplan.framework.graphics.shape.IPath;
 import com.edlplan.framework.graphics.shape.Path;
 import com.edlplan.framework.graphics.shape.PathBuilder;
-import com.edlplan.framework.math.polygon.PolygonMath;
-import com.edlplan.framework.graphics.opengl.batch.v2.object.ColorTriangle;
-import com.edlplan.framework.graphics.opengl.batch.v2.object.TextureQuad;
-import com.edlplan.framework.graphics.opengl.batch.v2.object.TextureQuadBatch;
-import com.edlplan.framework.graphics.opengl.shader.advance.ColorShader;
+import com.edlplan.framework.math.Color4;
 import com.edlplan.framework.math.FMath;
 import com.edlplan.framework.math.IQuad;
 import com.edlplan.framework.math.RectF;
 import com.edlplan.framework.math.Vec2;
+import com.edlplan.framework.math.polygon.PolygonMath;
 import com.edlplan.framework.utils.AbstractSRable;
 
 
@@ -50,7 +50,6 @@ public abstract class BaseCanvas extends AbstractSRable<CanvasData> {
 
     /**
      * 对画布对应区域缩放<br>
-     * 
      */
     public BaseCanvas scale(float x, float y) {
         getData().scale(x, y);
@@ -181,6 +180,7 @@ public abstract class BaseCanvas extends AbstractSRable<CanvasData> {
     private static final int CIRCLE_SPLIT_RATE = 48, CIRCLE_SPLIT_RATE_HALF = 24, CIRCLE_SPLIT_RATE_HH = 12;
     private static final double CIRCLE_SPLIT_ANGLE = Math.PI / CIRCLE_SPLIT_RATE_HALF;
     private static final float SIN_ANGLE = (float) Math.sin(CIRCLE_SPLIT_ANGLE), COS_ANGLE = (float) Math.cos(CIRCLE_SPLIT_ANGLE);
+
     public void drawCircle(float ox, float oy, float radius, Color4 color, float alpha) {
         Path path = new Path(CIRCLE_SPLIT_RATE);
         PathBuilder builder = new PathBuilder(path);
@@ -205,7 +205,7 @@ public abstract class BaseCanvas extends AbstractSRable<CanvasData> {
         }
         PackedColorTriangles packedColorTriangles = new PackedColorTriangles();
         makeUpTriangles(spl, packedColorTriangles, color, alpha);
-        packedColorTriangles.render(ColorShader.DEFAULT.get(),BatchEngine.getShaderGlobals());
+        packedColorTriangles.render(ColorShader.DEFAULT.get(), BatchEngine.getShaderGlobals());
     }
 
     public void drawConvexPolygon(Vec2[] polygon, int offset, int length, Color4 color, float alpha, ColorShader shader) {
@@ -266,28 +266,14 @@ public abstract class BaseCanvas extends AbstractSRable<CanvasData> {
             colorTriangles.add(
                     new ColorTriangle(
                             t[i],
-                            t[i+1],
-                            t[i+2],
+                            t[i + 1],
+                            t[i + 2],
                             a,
                             color4
                     )
             );
         }
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     /**
@@ -299,9 +285,10 @@ public abstract class BaseCanvas extends AbstractSRable<CanvasData> {
 
     /**
      * 返回一个被裁剪的画板，
-     * @param x 裁剪区域起始x
-     * @param y 裁剪区域起始y
-     * @param width 裁剪区域宽度
+     *
+     * @param x      裁剪区域起始x
+     * @param y      裁剪区域起始y
+     * @param width  裁剪区域宽度
      * @param height 裁剪区域高度
      * @return 返回一个新画板，画板的新原点为裁剪起点（会产生新对象）
      */

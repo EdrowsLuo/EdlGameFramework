@@ -2,9 +2,9 @@ package com.edlplan.framework.ui.drawable.sprite;
 
 import com.edlplan.framework.MContext;
 import com.edlplan.framework.graphics.opengl.BaseCanvas;
+import com.edlplan.framework.math.Anchor;
 import com.edlplan.framework.math.Color4;
 import com.edlplan.framework.math.RectF;
-import com.edlplan.framework.math.Anchor;
 
 public class FastTextureSprite extends BaseRectTextureSprite<FastTextureSpriteShader> {
     public FastTextureSprite(MContext c) {
@@ -14,7 +14,7 @@ public class FastTextureSprite extends BaseRectTextureSprite<FastTextureSpriteSh
     @Override
     protected void prepareColorUniformBase(BaseCanvas canvas) {
         getShader().loadAccentColor(Color4.White);
-        getShader().loadAlpha(alpha*canvas.getCanvasAlpha());
+        getShader().loadAlpha(alpha * canvas.getCanvasAlpha());
     }
 
     @Deprecated

@@ -11,6 +11,4 @@ public interface IPointer {
     Vec2 getCurrentPosition();
 
 
-
-
 }

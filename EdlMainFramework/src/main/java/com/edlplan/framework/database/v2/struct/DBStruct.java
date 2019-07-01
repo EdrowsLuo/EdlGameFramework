@@ -5,7 +5,6 @@ import java.lang.reflect.Field;
 public class DBStruct {
 
 
-
     public static class Column {
 
         public String name;

@@ -7,7 +7,7 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Iterator;
 
-public class JsonStringTable extends StringTable{
+public class JsonStringTable extends StringTable {
 
     private HashMap<String, String> table = new HashMap<>();
 

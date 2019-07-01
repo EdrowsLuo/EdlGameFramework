@@ -1,8 +1,8 @@
 package com.edlplan.framework.ui.animation;
 
-import com.edlplan.framework.utils.interfaces.InvokeSetter;
 import com.edlplan.framework.ui.animation.interpolate.ValueInterpolator;
 import com.edlplan.framework.ui.animation.precise.BasePreciseAnimation;
+import com.edlplan.framework.utils.interfaces.InvokeSetter;
 
 import java.util.ArrayList;
 import java.util.List;

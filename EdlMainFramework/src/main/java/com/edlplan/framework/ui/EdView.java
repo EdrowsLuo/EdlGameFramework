@@ -1,29 +1,29 @@
 package com.edlplan.framework.ui;
 
+import com.edlplan.framework.MContext;
 import com.edlplan.framework.graphics.opengl.BaseCanvas;
+import com.edlplan.framework.main.MainCallBack;
 import com.edlplan.framework.math.Color4;
+import com.edlplan.framework.math.RectF;
+import com.edlplan.framework.math.Vec2;
+import com.edlplan.framework.timing.IRunnableHandler;
 import com.edlplan.framework.ui.additions.FrameListener;
 import com.edlplan.framework.ui.animation.AbstractAnimation;
 import com.edlplan.framework.ui.animation.AnimationHandler;
-import com.edlplan.framework.ui.inputs.EdMotionEvent;
-import com.edlplan.framework.ui.inputs.HoverEvent;
-import com.edlplan.framework.ui.inputs.ScrollEvent;
-import com.edlplan.framework.ui.layout.EdMeasureSpec;
-import com.edlplan.framework.ui.layout.Gravity;
-import com.edlplan.framework.ui.layout.LayoutException;
-import com.edlplan.framework.MContext;
-import com.edlplan.framework.main.MainCallBack;
-import com.edlplan.framework.math.RectF;
-import com.edlplan.framework.math.Vec2;
 import com.edlplan.framework.ui.animation.callback.OnFinishListener;
 import com.edlplan.framework.ui.animation.callback.OnProgressListener;
 import com.edlplan.framework.ui.drawable.ColorDrawable;
 import com.edlplan.framework.ui.drawable.EdDrawable;
 import com.edlplan.framework.ui.drawable.RoundedRectDrawable;
+import com.edlplan.framework.ui.inputs.EdMotionEvent;
+import com.edlplan.framework.ui.inputs.HoverEvent;
+import com.edlplan.framework.ui.inputs.ScrollEvent;
 import com.edlplan.framework.ui.layout.EdLayoutParam;
+import com.edlplan.framework.ui.layout.EdMeasureSpec;
+import com.edlplan.framework.ui.layout.Gravity;
+import com.edlplan.framework.ui.layout.LayoutException;
 import com.edlplan.framework.ui.layout.MarginLayoutParam;
 import com.edlplan.framework.utils.BitUtil;
-import com.edlplan.framework.timing.IRunnableHandler;
 
 import java.lang.ref.WeakReference;
 
@@ -456,6 +456,7 @@ public class EdView implements IRunnableHandler, MainCallBack, FrameListener {
 
     /**
      * 绘制操作，不可变的逻辑
+     *
      * @param canvas
      */
     public final void draw(BaseCanvas canvas) {
@@ -464,7 +465,7 @@ public class EdView implements IRunnableHandler, MainCallBack, FrameListener {
             canvas.unprepare();
             BaseCanvas clip = canvas.requestClipCanvas(0, 0, Math.round(getWidth()), Math.round(getHeight()));
             if (clip == null) {
-                throw new RuntimeException(String.format("%s do not support clipCanvas! masking is not supported!",canvas.getClass().getSimpleName()));
+                throw new RuntimeException(String.format("%s do not support clipCanvas! masking is not supported!", canvas.getClass().getSimpleName()));
             }
             clip.prepare();
             onDraw(clip);
@@ -479,6 +480,7 @@ public class EdView implements IRunnableHandler, MainCallBack, FrameListener {
     /**
      * 在绘制开始前被调用，masking此时没有起效，这里的background和setBackground设置的背景无关
      * （词穷了不会起名x谅解一下 (qwq)）
+     *
      * @param canvas 画板
      */
     protected void onDrawBackgroundLayer(BaseCanvas canvas) {
@@ -487,6 +489,7 @@ public class EdView implements IRunnableHandler, MainCallBack, FrameListener {
 
     /**
      * 在绘制开始后被调用，masking此时没有起效
+     *
      * @param canvas 画板
      */
     protected void onDrawOverlayLayer(BaseCanvas canvas) {
@@ -636,7 +639,8 @@ public class EdView implements IRunnableHandler, MainCallBack, FrameListener {
                 case Cancel:
                     clickChecker.cancel();
                     return EVENT_FLAG_CANCELED;
-                default:break;
+                default:
+                    break;
             }
             return EVENT_FLAG_PASS;
         } else {
@@ -1060,7 +1064,7 @@ public class EdView implements IRunnableHandler, MainCallBack, FrameListener {
     }
 
     public OnProgressListener invalideDrawDuringAnimation() {
-        return p->invalidateDraw();
+        return p -> invalidateDraw();
     }
 }
 

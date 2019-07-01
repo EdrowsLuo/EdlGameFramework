@@ -1,13 +1,13 @@
 package com.edlplan.framework.graphics.opengl.fast;
 
+import com.edlplan.framework.graphics.opengl.Camera;
 import com.edlplan.framework.graphics.opengl.objs.AbstractTexture;
-import com.edlplan.framework.math.Color4;
 import com.edlplan.framework.graphics.opengl.shader.GLProgram;
 import com.edlplan.framework.graphics.opengl.shader.VertexAttrib;
 import com.edlplan.framework.graphics.opengl.shader.advance.BaseShader;
 import com.edlplan.framework.graphics.opengl.shader.uniforms.UniformMat4;
 import com.edlplan.framework.graphics.opengl.shader.uniforms.UniformSample2D;
-import com.edlplan.framework.graphics.opengl.Camera;
+import com.edlplan.framework.math.Color4;
 import com.edlplan.framework.math.Vec2;
 import com.edlplan.framework.math.Vec3;
 import com.edlplan.framework.utils.StringUtil;

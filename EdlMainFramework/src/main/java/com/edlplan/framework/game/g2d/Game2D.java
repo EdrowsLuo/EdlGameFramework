@@ -6,6 +6,7 @@ public abstract class Game2D {
 
     /**
      * 获取
+     *
      * @param tag
      * @param <T>
      * @return

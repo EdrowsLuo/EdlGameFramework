@@ -1,10 +1,10 @@
 package com.edlplan.framework.ui.animation;
 
-import com.edlplan.framework.utils.interfaces.FloatInvokeSetter;
-import com.edlplan.framework.utils.interfaces.FloatReflectionInvokeSetter;
 import com.edlplan.framework.ui.animation.interfaces.IHasAlpha;
 import com.edlplan.framework.ui.animation.interpolate.RawFloatInterpolator;
 import com.edlplan.framework.ui.animation.precise.BasePreciseAnimation;
+import com.edlplan.framework.utils.interfaces.FloatInvokeSetter;
+import com.edlplan.framework.utils.interfaces.FloatReflectionInvokeSetter;
 import com.edlplan.framework.utils.interfaces.Setter;
 
 import java.lang.reflect.Method;
@@ -37,7 +37,7 @@ public class FloatQueryAnimation<T> extends BasePreciseAnimation {
     }
 
     public FloatQueryAnimation(Setter<Float> setter) {
-        this(null, 0, RawFloatInterpolator.Instance, (v,f) -> setter.set(f), true);
+        this(null, 0, RawFloatInterpolator.Instance, (v, f) -> setter.set(f), true);
     }
 
     public FloatQueryAnimation(T target, double initialOffset, RawFloatInterpolator interpolator, FloatInvokeSetter<T> setter, boolean alwaysInitial) {

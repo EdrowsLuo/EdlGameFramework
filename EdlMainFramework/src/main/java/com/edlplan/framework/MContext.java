@@ -6,11 +6,11 @@ import android.widget.Toast;
 import com.edlplan.framework.graphics.opengl.BaseGLSurfaceView;
 import com.edlplan.framework.graphics.opengl.shader.compile.CompileRawStringStore;
 import com.edlplan.framework.resource.advance.ApplicationAssetResource;
+import com.edlplan.framework.timing.IRunnableHandler;
+import com.edlplan.framework.timing.MTimer;
 import com.edlplan.framework.ui.ViewRoot;
 import com.edlplan.framework.ui.looper.UILooper;
 import com.edlplan.framework.ui.looper.UIStep;
-import com.edlplan.framework.timing.MTimer;
-import com.edlplan.framework.timing.IRunnableHandler;
 
 import java.util.HashMap;
 

@@ -1,8 +1,8 @@
 package com.edlplan.framework.ui.drawable.sprite;
 
-import com.edlplan.framework.graphics.opengl.GLCanvas2D;
 import com.edlplan.framework.MContext;
 import com.edlplan.framework.graphics.opengl.BaseCanvas;
+import com.edlplan.framework.graphics.opengl.GLCanvas2D;
 
 public class MoveTextureSprite extends TextureSprite {
 

@@ -38,8 +38,8 @@ public interface DBLine {
                 return getInt(0);
             case STRING:
                 return Integer.parseInt(getString(0));
-                default:
-                    return 0;
+            default:
+                return 0;
         }
     }
 }

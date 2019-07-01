@@ -57,7 +57,7 @@ public abstract class Sprite<S extends SpriteShader> extends AbstractSprite {
     }
 
     protected void prepareColorUniformBase(BaseCanvas canvas) {
-        getShader().loadAccentColor(accentColor.copyNew().multipleAlpha(alpha*canvas.getCanvasAlpha()));
+        getShader().loadAccentColor(accentColor.copyNew().multipleAlpha(alpha * canvas.getCanvasAlpha()));
         getShader().loadAlpha(1);
     }
 

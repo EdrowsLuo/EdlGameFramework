@@ -1,7 +1,7 @@
 package com.edlplan.framework.graphics.opengl.buffer.direct;
 
-import com.edlplan.framework.graphics.opengl.shader.VertexAttrib;
 import com.edlplan.framework.graphics.opengl.buffer.BufferUtil;
+import com.edlplan.framework.graphics.opengl.shader.VertexAttrib;
 import com.edlplan.framework.math.Vec2;
 
 import java.nio.FloatBuffer;

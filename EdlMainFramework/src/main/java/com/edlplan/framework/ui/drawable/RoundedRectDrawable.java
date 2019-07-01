@@ -2,8 +2,8 @@ package com.edlplan.framework.ui.drawable;
 
 import com.edlplan.framework.MContext;
 import com.edlplan.framework.graphics.opengl.BaseCanvas;
-import com.edlplan.framework.math.Color4;
 import com.edlplan.framework.graphics.opengl.objs.GLTexture;
+import com.edlplan.framework.math.Color4;
 import com.edlplan.framework.math.RectF;
 import com.edlplan.framework.ui.drawable.sprite.RoundedRectSprite;
 

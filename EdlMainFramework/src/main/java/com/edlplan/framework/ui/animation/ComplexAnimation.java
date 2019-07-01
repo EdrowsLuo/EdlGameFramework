@@ -1,7 +1,7 @@
 package com.edlplan.framework.ui.animation;
 
-import com.edlplan.framework.utils.interfaces.InvokeGetter;
 import com.edlplan.framework.utils.CollectionUtil;
+import com.edlplan.framework.utils.interfaces.InvokeGetter;
 
 import java.util.ArrayList;
 import java.util.Collections;

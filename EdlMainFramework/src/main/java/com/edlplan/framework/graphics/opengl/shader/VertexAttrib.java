@@ -71,7 +71,7 @@ public class VertexAttrib {
         );
     }
 
-    public void loadData(Buffer data, int numComps, int type, int step,boolean normalized) {
+    public void loadData(Buffer data, int numComps, int type, int step, boolean normalized) {
         if (getHandle() == -1) return;
         GLES20.glEnableVertexAttribArray(getHandle());
         GLES20.glVertexAttribPointer(

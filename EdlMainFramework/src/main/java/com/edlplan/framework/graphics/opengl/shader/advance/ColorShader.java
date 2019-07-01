@@ -14,7 +14,7 @@ import com.edlplan.framework.utils.Lazy;
 
 import java.nio.FloatBuffer;
 
-public class ColorShader extends BaseShader{
+public class ColorShader extends BaseShader {
 
     public static final Lazy<ColorShader> DEFAULT;
 

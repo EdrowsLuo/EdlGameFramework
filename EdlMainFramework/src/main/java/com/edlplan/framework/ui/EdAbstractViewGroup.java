@@ -1,9 +1,9 @@
 package com.edlplan.framework.ui;
 
-import com.edlplan.framework.graphics.opengl.BaseCanvas;
-import com.edlplan.framework.ui.inputs.EdMotionEvent;
 import com.edlplan.framework.MContext;
+import com.edlplan.framework.graphics.opengl.BaseCanvas;
 import com.edlplan.framework.ui.animation.interfaces.IHasAlpha;
+import com.edlplan.framework.ui.inputs.EdMotionEvent;
 import com.edlplan.framework.ui.layout.EdLayoutParam;
 import com.edlplan.framework.ui.layout.MeasureCore;
 import com.edlplan.framework.utils.interfaces.Consumer;
@@ -11,7 +11,7 @@ import com.edlplan.framework.utils.interfaces.Consumer;
 import java.util.Arrays;
 import java.util.Iterator;
 
-public abstract class EdAbstractViewGroup extends EdView implements IHasAlpha{
+public abstract class EdAbstractViewGroup extends EdView implements IHasAlpha {
     private ChildrenWrapper childrenWrapper = new ChildrenWrapper();
 
     private LayoutTransition transition;
@@ -500,7 +500,6 @@ public abstract class EdAbstractViewGroup extends EdView implements IHasAlpha{
             addView(view);
         }
     }
-
 
 
     public void children(EdView... views) {

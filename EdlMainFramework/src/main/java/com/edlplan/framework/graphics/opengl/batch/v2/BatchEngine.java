@@ -1,7 +1,7 @@
 package com.edlplan.framework.graphics.opengl.batch.v2;
 
-import com.edlplan.framework.graphics.opengl.shader.ShaderGlobals;
 import com.edlplan.framework.graphics.opengl.Camera;
+import com.edlplan.framework.graphics.opengl.shader.ShaderGlobals;
 
 public class BatchEngine {
 
@@ -15,6 +15,7 @@ public class BatchEngine {
 
     /**
      * 设置全局透明度，
+     *
      * @param alpha
      */
     public static void setGlobalAlpha(float alpha) {
@@ -26,6 +27,7 @@ public class BatchEngine {
 
     /**
      * 更换全局相机，调用时必定触发flush
+     *
      * @param camera
      */
     public static void setGlobalCamera(Camera camera) {

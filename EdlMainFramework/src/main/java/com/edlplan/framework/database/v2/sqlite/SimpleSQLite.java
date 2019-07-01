@@ -4,11 +4,10 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 
-import com.edlplan.framework.database.v2.ISimpleDB;
 import com.edlplan.framework.database.v2.DBLine;
 import com.edlplan.framework.database.v2.DBResult;
+import com.edlplan.framework.database.v2.ISimpleDB;
 import com.edlplan.framework.database.v2.SimpleSQLException;
-import com.edlplan.framework.utils.functionality.Value;
 
 import java.util.HashMap;
 import java.util.Iterator;

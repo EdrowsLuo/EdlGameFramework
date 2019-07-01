@@ -1,8 +1,8 @@
 package com.edlplan.framework.ui.drawable.sprite;
 
 import com.edlplan.framework.MContext;
-import com.edlplan.framework.math.RectF;
 import com.edlplan.framework.math.Quad;
+import com.edlplan.framework.math.RectF;
 
 public class ColorRectSprite extends RectSprite<ColorSpriteShader> {
     public ColorRectSprite(MContext c) {

@@ -3,9 +3,9 @@ package com.edlplan.framework.ui.widget;
 import com.edlplan.framework.MContext;
 import com.edlplan.framework.ui.EdAbstractViewGroup;
 import com.edlplan.framework.ui.EdView;
+import com.edlplan.framework.ui.layout.EdLayoutParam;
 import com.edlplan.framework.ui.layout.EdMeasureSpec;
 import com.edlplan.framework.ui.layout.Gravity;
-import com.edlplan.framework.ui.layout.EdLayoutParam;
 import com.edlplan.framework.ui.layout.MarginLayoutParam;
 
 public class RelativeLayout extends EdAbstractViewGroup {

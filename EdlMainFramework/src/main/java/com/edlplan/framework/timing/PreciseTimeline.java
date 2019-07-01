@@ -1,6 +1,5 @@
 package com.edlplan.framework.timing;
 
-import com.edlplan.framework.ui.animation.AnimState;
 import com.edlplan.framework.ui.animation.precise.AbstractPreciseAnimation;
 import com.edlplan.framework.utils.MLog;
 import com.edlplan.framework.utils.SafeList;

@@ -5,7 +5,7 @@ import com.edlplan.framework.utils.advance.LinkedNode;
 
 import java.util.Iterator;
 
-public class DrawGroup implements IDrawObject{
+public class DrawGroup implements IDrawObject {
 
     private DrawObjectManager drawObjectManager;
 

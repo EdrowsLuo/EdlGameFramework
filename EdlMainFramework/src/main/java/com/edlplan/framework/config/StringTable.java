@@ -17,6 +17,7 @@ public abstract class StringTable {
 
     /**
      * 获取原始字符串
+     *
      * @param id 字符串id，建议通过 tableName:valueName 的格式访问
      * @return 对应的字符串，表里没有时返回null
      */

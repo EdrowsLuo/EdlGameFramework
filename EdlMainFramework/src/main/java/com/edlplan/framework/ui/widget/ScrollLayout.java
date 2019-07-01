@@ -5,12 +5,12 @@ import com.edlplan.framework.graphics.opengl.BaseCanvas;
 import com.edlplan.framework.ui.EdAbstractViewGroup;
 import com.edlplan.framework.ui.EdView;
 import com.edlplan.framework.ui.inputs.ScrollEvent;
+import com.edlplan.framework.ui.layout.EdLayoutParam;
 import com.edlplan.framework.ui.layout.EdMeasureSpec;
 import com.edlplan.framework.ui.layout.Gravity;
-import com.edlplan.framework.ui.widget.component.Scroller;
-import com.edlplan.framework.ui.layout.EdLayoutParam;
 import com.edlplan.framework.ui.layout.MarginLayoutParam;
 import com.edlplan.framework.ui.layout.Orientation;
+import com.edlplan.framework.ui.widget.component.Scroller;
 import com.edlplan.framework.utils.interfaces.Setter;
 
 public class ScrollLayout extends EdAbstractViewGroup {

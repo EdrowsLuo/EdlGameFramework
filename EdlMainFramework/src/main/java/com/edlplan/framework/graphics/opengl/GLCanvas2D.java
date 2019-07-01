@@ -1,14 +1,13 @@
 package com.edlplan.framework.graphics.opengl;
 
-import com.edlplan.framework.graphics.opengl.batch.v2.BatchEngine;
-import com.edlplan.framework.math.Color4;
-import com.edlplan.framework.graphics.opengl.objs.GLTexture;
 import com.edlplan.framework.MContext;
 import com.edlplan.framework.graphics.layer.BufferedLayer;
+import com.edlplan.framework.graphics.opengl.batch.v2.BatchEngine;
+import com.edlplan.framework.graphics.opengl.objs.GLTexture;
+import com.edlplan.framework.math.Color4;
 import com.edlplan.framework.math.Mat4;
 
-public class GLCanvas2D extends BaseCanvas
-{
+public class GLCanvas2D extends BaseCanvas {
     private BufferedLayer layer;
 
     public GLCanvas2D(BufferedLayer layer) {

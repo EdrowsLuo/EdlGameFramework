@@ -1,7 +1,7 @@
 package com.edlplan.framework.ui.text.font.bmfont;
 
-import com.edlplan.framework.resource.AResource;
 import com.edlplan.framework.MContext;
+import com.edlplan.framework.resource.AResource;
 
 import java.io.IOException;
 import java.util.ArrayList;

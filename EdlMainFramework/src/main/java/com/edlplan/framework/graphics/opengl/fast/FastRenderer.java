@@ -2,13 +2,13 @@ package com.edlplan.framework.graphics.opengl.fast;
 
 import android.opengl.GLES20;
 
-import com.edlplan.framework.graphics.opengl.buffer.BufferUtil;
-import com.edlplan.framework.graphics.opengl.objs.AbstractTexture;
-import com.edlplan.framework.math.Color4;
-import com.edlplan.framework.graphics.opengl.objs.GLTexture;
 import com.edlplan.framework.graphics.opengl.BaseCanvas;
 import com.edlplan.framework.graphics.opengl.BlendType;
 import com.edlplan.framework.graphics.opengl.GLWrapped;
+import com.edlplan.framework.graphics.opengl.buffer.BufferUtil;
+import com.edlplan.framework.graphics.opengl.objs.AbstractTexture;
+import com.edlplan.framework.graphics.opengl.objs.GLTexture;
+import com.edlplan.framework.math.Color4;
 import com.edlplan.framework.math.Vec2;
 import com.edlplan.framework.math.Vec3;
 import com.edlplan.framework.math.its.IColor4;

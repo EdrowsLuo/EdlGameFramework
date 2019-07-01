@@ -8,8 +8,8 @@ import com.edlplan.framework.graphics.layer.BufferedLayer;
 import com.edlplan.framework.graphics.opengl.GLCanvas2D;
 import com.edlplan.framework.graphics.opengl.GLWrapped;
 import com.edlplan.framework.graphics.opengl.objs.AbstractTexture;
-import com.edlplan.framework.math.Color4;
 import com.edlplan.framework.graphics.opengl.objs.GLTexture;
+import com.edlplan.framework.math.Color4;
 import com.edlplan.framework.math.RectF;
 import com.edlplan.framework.ui.looper.ExpensiveTask;
 import com.edlplan.framework.utils.interfaces.Consumer;
@@ -231,7 +231,8 @@ public class AutoPackTexturePool extends TexturePool {
     private AbstractTexture tryAddInLine(AbstractTexture raw, String msg) {
         if (currentY + raw.getHeight() + marginY < currentPack.layer.getHeight()) {
             packCanvas.prepare();
-            packCanvas.save();packCanvas.drawTexture(raw, RectF.xywh(currentX, currentY, raw.getWidth(), raw.getHeight()));
+            packCanvas.save();
+            packCanvas.drawTexture(raw, RectF.xywh(currentX, currentY, raw.getWidth(), raw.getHeight()));
             packCanvas.restore();
             packCanvas.unprepare();
             RectF area = RectF.xywh(currentX, currentY, raw.getWidth(), raw.getHeight());

@@ -38,7 +38,7 @@ public class SimpleDBHelper {
                 throw new SimpleSQLException("db version is bigger than client version");
             }
             if (dbVersion < getVersion()) {
-                databaseUpgrade(dbVersion,getVersion());
+                databaseUpgrade(dbVersion, getVersion());
             }
         } else {
             file.getParentFile().mkdirs();
@@ -57,6 +57,7 @@ public class SimpleDBHelper {
 
     /**
      * Called when the database is created, you can exec your create table sentence here
+     *
      * @throws SimpleSQLException
      */
     protected void onDatabaseCreate() throws SimpleSQLException {
@@ -70,6 +71,7 @@ public class SimpleDBHelper {
 
     /**
      * Called when the database upgrade from oldVersion to newVersion
+     *
      * @param oldVersion
      * @param newVersion
      */

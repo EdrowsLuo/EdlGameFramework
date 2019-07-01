@@ -2,9 +2,9 @@ package com.edlplan.framework.ui.drawable.sprite;
 
 import com.edlplan.framework.MContext;
 import com.edlplan.framework.graphics.opengl.BaseCanvas;
-import com.edlplan.framework.math.Color4;
 import com.edlplan.framework.graphics.opengl.shader.advance.BaseShader;
 import com.edlplan.framework.graphics.opengl.shader.uniforms.UniformColor4;
+import com.edlplan.framework.math.Color4;
 import com.edlplan.framework.utils.StringUtil;
 
 public class ShadowCircleSprite extends CircleSprite {
@@ -15,6 +15,7 @@ public class ShadowCircleSprite extends CircleSprite {
     }
 
     boolean isInner = false;
+
     public void setInner() {
         isInner = true;
     }

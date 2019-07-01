@@ -78,7 +78,7 @@ public class MultipleTextureQuad extends TextureQuad {
 
         public AbstractTexture texture;
 
-        public float u1,v1,u2, v2;
+        public float u1, v1, u2, v2;
 
     }
 

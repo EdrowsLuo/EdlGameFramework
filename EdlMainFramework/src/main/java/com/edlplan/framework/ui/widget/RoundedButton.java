@@ -1,8 +1,8 @@
 package com.edlplan.framework.ui.widget;
 
 import com.edlplan.framework.MContext;
-import com.edlplan.framework.math.Color4;
 import com.edlplan.framework.math.Anchor;
+import com.edlplan.framework.math.Color4;
 import com.edlplan.framework.ui.EdBufferedContainer;
 import com.edlplan.framework.ui.EdView;
 import com.edlplan.framework.ui.ViewConfiguration;
@@ -11,7 +11,7 @@ import com.edlplan.framework.ui.animation.ComplexAnimationBuilder;
 import com.edlplan.framework.ui.animation.Easing;
 import com.edlplan.framework.ui.animation.FloatQueryAnimation;
 
-public class RoundedButton extends RelativeContainer{
+public class RoundedButton extends RelativeContainer {
 
     public static float DEFAULT_HEIGHT = ViewConfiguration.dp(17);
 

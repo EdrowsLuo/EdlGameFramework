@@ -3,9 +3,9 @@ package com.edlplan.framework.graphics.opengl.shader;
 import android.opengl.GLES20;
 import android.util.Log;
 
-import com.edlplan.framework.graphics.opengl.shader.compile.Preprocessor;
 import com.edlplan.framework.graphics.opengl.GLException;
 import com.edlplan.framework.graphics.opengl.GLWrapped;
+import com.edlplan.framework.graphics.opengl.shader.compile.Preprocessor;
 import com.edlplan.framework.utils.interfaces.Recycleable;
 
 public class GLProgram implements Recycleable {

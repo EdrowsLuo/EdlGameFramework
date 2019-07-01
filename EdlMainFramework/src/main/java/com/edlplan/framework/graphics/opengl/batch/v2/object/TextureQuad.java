@@ -1,13 +1,13 @@
 package com.edlplan.framework.graphics.opengl.batch.v2.object;
 
 import com.edlplan.framework.graphics.opengl.objs.AbstractTexture;
-import com.edlplan.framework.math.Color4;
 import com.edlplan.framework.math.Anchor;
+import com.edlplan.framework.math.Color4;
 import com.edlplan.framework.math.RectF;
 import com.edlplan.framework.math.Vec2;
 import com.edlplan.framework.utils.FloatRef;
 
-public class TextureQuad extends  ATextureQuad{
+public class TextureQuad extends ATextureQuad {
 
     public static final int TopLeft = 0;
 
@@ -31,7 +31,7 @@ public class TextureQuad extends  ATextureQuad{
 
     public Color4 accentColor;
 
-    public float u1,v1,u2, v2;
+    public float u1, v1, u2, v2;
 
     public TextureQuad syncPosition(Vec2 position) {
         this.position = position;
@@ -140,7 +140,7 @@ public class TextureQuad extends  ATextureQuad{
             ary[offset++] = b;
             ary[offset++] = u2;
             ary[offset++] = v2;
-            ary[offset  ] = color;
+            ary[offset] = color;
         } else {
             final float s = (float) Math.sin(rotation.value);
             final float c = (float) Math.cos(rotation.value);
@@ -167,7 +167,7 @@ public class TextureQuad extends  ATextureQuad{
             ary[offset++] = r * s + b * c + y;
             ary[offset++] = u2;
             ary[offset++] = v2;
-            ary[offset  ] = color;
+            ary[offset] = color;
         }
     }
 }

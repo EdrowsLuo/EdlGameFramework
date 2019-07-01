@@ -29,7 +29,7 @@ public abstract class EdlMainActivity extends Activity {
      *          register(app);
      * }
      * }</pre>
-     *
+     * <p>
      * <p>自定义一个类继承MainRenderer，并确保一个(MContext c,MainApplication app)的构造方法：
      * <pre>{@code
      * protected void createGame(){

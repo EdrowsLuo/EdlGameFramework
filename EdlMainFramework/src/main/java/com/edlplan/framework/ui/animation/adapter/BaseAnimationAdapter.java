@@ -1,9 +1,9 @@
 package com.edlplan.framework.ui.animation.adapter;
 
-import com.edlplan.framework.utils.interfaces.InvokeSetter;
 import com.edlplan.framework.ui.animation.Easing;
 import com.edlplan.framework.ui.animation.IAnimationAdapter;
 import com.edlplan.framework.ui.animation.interpolate.ValueInterpolator;
+import com.edlplan.framework.utils.interfaces.InvokeSetter;
 
 public class BaseAnimationAdapter<T, V> implements IAnimationAdapter<T, V> {
     private InvokeSetter<T, V> setter;

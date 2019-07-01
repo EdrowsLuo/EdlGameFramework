@@ -1,12 +1,12 @@
 package com.edlplan.framework.graphics.layer;
 
+import com.edlplan.framework.MContext;
 import com.edlplan.framework.graphics.opengl.GLException;
 import com.edlplan.framework.graphics.opengl.GLWrapped;
 import com.edlplan.framework.graphics.opengl.bufferObjects.FBOPool;
 import com.edlplan.framework.graphics.opengl.bufferObjects.FrameBufferObject;
 import com.edlplan.framework.graphics.opengl.objs.AbstractTexture;
 import com.edlplan.framework.graphics.opengl.objs.GLTexture;
-import com.edlplan.framework.MContext;
 import com.edlplan.framework.math.Mat4;
 
 /**

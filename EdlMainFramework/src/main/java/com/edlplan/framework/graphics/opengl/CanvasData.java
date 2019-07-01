@@ -1,9 +1,9 @@
 package com.edlplan.framework.graphics.opengl;
 
-import com.edlplan.framework.utils.interfaces.Copyable;
-import com.edlplan.framework.utils.interfaces.Recycleable;
 import com.edlplan.framework.math.Mat4;
 import com.edlplan.framework.math.Vec2;
+import com.edlplan.framework.utils.interfaces.Copyable;
+import com.edlplan.framework.utils.interfaces.Recycleable;
 
 public class CanvasData implements Recycleable, Copyable {
 
@@ -43,7 +43,7 @@ public class CanvasData implements Recycleable, Copyable {
     public float getCanvasAlpha() {
         return canvasAlpha;
     }
-    
+
     /**
      * 定义了canvas上每单位有多少像素
      */

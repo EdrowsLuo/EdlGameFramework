@@ -15,7 +15,7 @@ import java.util.List;
 
 public class SimpleDB {
 
-    private static HashMap<Class,Function<DBLine,?>> reflectMap = new HashMap<>();
+    private static HashMap<Class, Function<DBLine, ?>> reflectMap = new HashMap<>();
 
     static {
         registerReflect(Integer.class, DBLine::asInt);
@@ -45,7 +45,7 @@ public class SimpleDB {
 
         if (klass.isAssignableFrom(DatabaseReflectable.class)) {
             try {
-                registerReflect(klass, (Function<DBLine, T>) ((DatabaseReflectable)klass.newInstance()).getReflect());
+                registerReflect(klass, (Function<DBLine, T>) ((DatabaseReflectable) klass.newInstance()).getReflect());
             } catch (InstantiationException e) {
                 e.printStackTrace();
             } catch (IllegalAccessException e) {
@@ -91,7 +91,8 @@ public class SimpleDB {
 
     @Retention(RetentionPolicy.RUNTIME)
     @Target(ElementType.FIELD)
-    public @interface DBIgnore { }
+    public @interface DBIgnore {
+    }
 
     public interface DatabaseReflectable {
         Function<DBLine, ?> getReflect();

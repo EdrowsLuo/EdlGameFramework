@@ -1,8 +1,8 @@
 package com.edlplan.framework.test.performance;
 
 import com.edlplan.framework.Framework;
-import com.edlplan.framework.utils.interfaces.Consumer;
 import com.edlplan.framework.utils.advance.ConsumerContainer;
+import com.edlplan.framework.utils.interfaces.Consumer;
 
 import java.util.ArrayList;
 import java.util.HashMap;

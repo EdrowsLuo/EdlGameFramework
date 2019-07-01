@@ -1,9 +1,9 @@
 package com.edlplan.framework.resource;
 
 import com.edlplan.framework.MContext;
+import com.edlplan.framework.async.AsyncTaskContainer;
 import com.edlplan.framework.graphics.opengl.objs.AbstractTexture;
 import com.edlplan.framework.graphics.opengl.objs.GLTexture;
-import com.edlplan.framework.async.AsyncTaskContainer;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -56,9 +56,9 @@ public class SkinDescription {
 
         private int size;
 
-        public RawListLoader(String name, String basePath,String suffix, int size) {
-            this.name=name;
-            this.basePath=basePath;
+        public RawListLoader(String name, String basePath, String suffix, int size) {
+            this.name = name;
+            this.basePath = basePath;
             this.suffix = suffix;
             this.size = size;
         }
@@ -119,7 +119,7 @@ public class SkinDescription {
         public boolean load(Skin skin, AResource resource, boolean isOverride) {
             if (skin.contains(refName)) {
                 System.out.println("load " + name + " reuse " + name);
-                skin.putRawData(name,skin.getTexture(refName));
+                skin.putRawData(name, skin.getTexture(refName));
                 return true;
             } else {
                 System.out.println("load failed " + name + " reuse " + name);
@@ -204,7 +204,7 @@ public class SkinDescription {
         }
     }
 
-    public interface EntryLoader{
+    public interface EntryLoader {
         boolean load(Skin skin, AResource resource, boolean isOverride);
     }
 }

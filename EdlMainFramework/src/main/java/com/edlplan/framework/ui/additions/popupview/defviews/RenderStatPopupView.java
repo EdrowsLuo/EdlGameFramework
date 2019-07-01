@@ -1,12 +1,12 @@
 package com.edlplan.framework.ui.additions.popupview.defviews;
 
-import com.edlplan.framework.ui.layout.Gravity;
 import com.edlplan.framework.MContext;
 import com.edlplan.framework.graphics.opengl.BaseCanvas;
 import com.edlplan.framework.math.Color4;
 import com.edlplan.framework.test.performance.ui.FrameRenderMonitor;
 import com.edlplan.framework.ui.ViewConfiguration;
 import com.edlplan.framework.ui.additions.popupview.PopupView;
+import com.edlplan.framework.ui.layout.Gravity;
 import com.edlplan.framework.ui.layout.MarginLayoutParam;
 import com.edlplan.framework.ui.layout.Param;
 import com.edlplan.framework.ui.widget.LinearLayout;

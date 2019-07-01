@@ -1,6 +1,6 @@
 package com.edlplan.framework.async;
 
-public class IntProgressHolder extends ProgressHolder{
+public class IntProgressHolder extends ProgressHolder {
 
     private int max;
 

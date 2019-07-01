@@ -1,8 +1,8 @@
 package com.edlplan.framework.ui.drawable.sprite;
 
 import com.edlplan.framework.MContext;
-import com.edlplan.framework.math.RectF;
 import com.edlplan.framework.math.Anchor;
+import com.edlplan.framework.math.RectF;
 
 public class TextureSprite extends BaseRectTextureSprite<TextureSpriteShader> {
     public TextureSprite(MContext c) {

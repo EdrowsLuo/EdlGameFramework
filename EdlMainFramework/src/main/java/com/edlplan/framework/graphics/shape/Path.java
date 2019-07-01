@@ -4,7 +4,7 @@ import com.edlplan.framework.math.Vec2;
 
 import java.util.Arrays;
 
-public class Path implements IEditablePath{
+public class Path implements IEditablePath {
 
     private Vec2[] vArray;
 

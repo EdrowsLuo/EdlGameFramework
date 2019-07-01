@@ -14,12 +14,14 @@ public class IntervalSchedule implements TimeUpdateable {
         first.value = new Task() {{
             start = Double.NEGATIVE_INFINITY;
             end = Double.POSITIVE_INFINITY;
-            body = time -> { };
+            body = time -> {
+            };
         }};
         last = new LinkedNode<>();
         last.value = new Task() {{
             start = end = Double.POSITIVE_INFINITY;
-            body = time -> { };
+            body = time -> {
+            };
         }};
         first.insertToNext(last);
     }

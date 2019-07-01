@@ -8,7 +8,7 @@ public class TextureMesh extends ColorMesh {
 
     AbstractTexture texture;
 
-    public TextureMesh(int size, float[] color, float[] pos,float[] tex) {
+    public TextureMesh(int size, float[] color, float[] pos, float[] tex) {
         super(size, color, pos);
         textureCoord = new MeshPart();
         textureCoord.data = tex;

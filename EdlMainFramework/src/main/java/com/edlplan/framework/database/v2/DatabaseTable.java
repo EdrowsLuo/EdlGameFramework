@@ -3,10 +3,10 @@ package com.edlplan.framework.database.v2;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.edlplan.framework.utils.advance.AdvancedStringBuilder;
 import com.edlplan.framework.utils.CollectionUtil;
-import com.edlplan.framework.utils.interfaces.Function;
 import com.edlplan.framework.utils.JudgeStatement;
+import com.edlplan.framework.utils.advance.AdvancedStringBuilder;
+import com.edlplan.framework.utils.interfaces.Function;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
@@ -23,7 +23,7 @@ import java.util.List;
 @Deprecated
 public abstract class DatabaseTable {
 
-    private static final int NOT_PREPARE=0,IN_PREPARE=1, PREPARED = 3;
+    private static final int NOT_PREPARE = 0, IN_PREPARE = 1, PREPARED = 3;
 
     protected static final String WHERE = "WHERE";
 
@@ -192,7 +192,7 @@ public abstract class DatabaseTable {
     }
 
     public void rawexec(String sql, String... data) {
-        database.execSQL(sql,data);
+        database.execSQL(sql, data);
     }
 
     public class DatabaseOperation {
@@ -228,7 +228,7 @@ public abstract class DatabaseTable {
         public final String extra;
         public final DatabaseTable table;
 
-        protected Row(DatabaseTable table,int index, String name, DataType type, String extra, boolean autoIncrement) {
+        protected Row(DatabaseTable table, int index, String name, DataType type, String extra, boolean autoIncrement) {
             this.table = table;
             this.index = index;
             this.name = name;
@@ -256,7 +256,6 @@ public abstract class DatabaseTable {
     }
 
 
-
     public enum DataType {
         INTEGER,
         TEXT,
@@ -276,6 +275,7 @@ public abstract class DatabaseTable {
     @Retention(RetentionPolicy.RUNTIME)
     public @interface Name {
         String AUTO = "auto_set";
+
         String value() default AUTO;
     }
 
@@ -289,15 +289,16 @@ public abstract class DatabaseTable {
     @Documented
     @Target(ElementType.FIELD)
     @Retention(RetentionPolicy.RUNTIME)
-    public @interface Extra{
+    public @interface Extra {
         String PKA = "PRIMARY KEY AUTOINCREMENT";
+
         String value();
     }
 
     @Documented
     @Target(ElementType.TYPE)
     @Retention(RetentionPolicy.RUNTIME)
-    public @interface TableName{
+    public @interface TableName {
         String value();
     }
 

@@ -13,7 +13,8 @@ public class Schedule implements TimeUpdateable {
 
     /**
      * 添加一个事件
-     * @param time 事件事件戳
+     *
+     * @param time     事件事件戳
      * @param runnable 具体操作
      */
     public void addEvent(double time, Runnable runnable) {

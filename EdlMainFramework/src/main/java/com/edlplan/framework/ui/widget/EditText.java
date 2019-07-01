@@ -8,10 +8,10 @@ import com.edlplan.framework.ui.EdView;
 import com.edlplan.framework.ui.ViewConfiguration;
 import com.edlplan.framework.ui.drawable.sprite.ColorRectSprite;
 import com.edlplan.framework.ui.layout.Gravity;
-import com.edlplan.framework.utils.systemops.IntentHelper;
 import com.edlplan.framework.ui.layout.MarginLayoutParam;
 import com.edlplan.framework.ui.layout.Orientation;
 import com.edlplan.framework.ui.layout.Param;
+import com.edlplan.framework.utils.systemops.IntentHelper;
 
 public class EditText extends LinearLayout {
 

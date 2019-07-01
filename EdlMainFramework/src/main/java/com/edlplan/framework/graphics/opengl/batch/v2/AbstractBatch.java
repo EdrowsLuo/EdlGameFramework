@@ -2,6 +2,7 @@ package com.edlplan.framework.graphics.opengl.batch.v2;
 
 /**
  * 一个Batch表示缓存了一类的操作
+ *
  * @param <T>
  */
 public abstract class AbstractBatch<T> {

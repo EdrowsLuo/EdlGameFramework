@@ -48,7 +48,7 @@ public class AnyQuadTextureQuad extends ATextureQuad {
         ary[offset++] = rb.y;
         ary[offset++] = rbT.x;
         ary[offset++] = rbT.y;
-        ary[offset  ] = color;
+        ary[offset] = color;
     }
 
 }

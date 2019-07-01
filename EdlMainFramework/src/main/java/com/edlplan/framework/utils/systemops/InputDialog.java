@@ -29,12 +29,12 @@ public class InputDialog extends Dialog {
     }
 
     public void showForResult(Consumer<String> onResult) {
-        findViewById(R.id.button3).setOnClickListener(view->{
-            onResult.consume(((EditText)findViewById(R.id.editText)).getText().toString());
+        findViewById(R.id.button3).setOnClickListener(view -> {
+            onResult.consume(((EditText) findViewById(R.id.editText)).getText().toString());
             dismiss();
         });
         if (isSingleLine()) {
-            ((EditText)findViewById(R.id.editText)).setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            ((EditText) findViewById(R.id.editText)).setOnEditorActionListener(new TextView.OnEditorActionListener() {
                 @Override
                 public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
                     if (event.getKeyCode() == KeyEvent.KEYCODE_ENTER) {

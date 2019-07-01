@@ -3,9 +3,9 @@ package com.edlplan.framework.ui.text.font;
 import com.edlplan.framework.graphics.opengl.objs.AbstractTexture;
 import com.edlplan.framework.graphics.opengl.objs.GLTexture;
 import com.edlplan.framework.graphics.opengl.objs.texture.TextureRegion;
+import com.edlplan.framework.math.RectF;
 import com.edlplan.framework.ui.text.font.bmfont.BMFont;
 import com.edlplan.framework.ui.text.font.bmfont.FNTChar;
-import com.edlplan.framework.math.RectF;
 
 /**
  * copy from https://github.com/ppy/osu/blob/632befb2101d0e886901c1b407189eabca1540cc/osu.Game/Graphics/SpriteIcon.cs

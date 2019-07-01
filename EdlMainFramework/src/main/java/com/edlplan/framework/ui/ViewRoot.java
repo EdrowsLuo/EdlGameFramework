@@ -2,17 +2,17 @@ package com.edlplan.framework.ui;
 
 import android.view.MotionEvent;
 
+import com.edlplan.framework.MContext;
 import com.edlplan.framework.graphics.opengl.BaseCanvas;
+import com.edlplan.framework.main.MainCallBack;
+import com.edlplan.framework.test.performance.Tracker;
 import com.edlplan.framework.ui.additions.PopupViewLayer;
 import com.edlplan.framework.ui.additions.RootContainer;
 import com.edlplan.framework.ui.inputs.DirectMotionHandler;
 import com.edlplan.framework.ui.inputs.EdMotionEvent;
 import com.edlplan.framework.ui.inputs.NativeInputQuery;
-import com.edlplan.framework.ui.layout.EdMeasureSpec;
-import com.edlplan.framework.MContext;
-import com.edlplan.framework.main.MainCallBack;
-import com.edlplan.framework.test.performance.Tracker;
 import com.edlplan.framework.ui.layout.EdLayoutParam;
+import com.edlplan.framework.ui.layout.EdMeasureSpec;
 import com.edlplan.framework.ui.layout.MeasureCore;
 import com.edlplan.framework.ui.layout.Param;
 import com.edlplan.framework.utils.BitUtil;

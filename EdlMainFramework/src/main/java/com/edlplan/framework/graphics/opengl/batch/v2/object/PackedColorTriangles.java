@@ -1,10 +1,10 @@
 package com.edlplan.framework.graphics.opengl.batch.v2.object;
 
-import com.edlplan.framework.graphics.opengl.shader.ShaderGlobals;
 import com.edlplan.framework.graphics.opengl.GLWrapped;
 import com.edlplan.framework.graphics.opengl.batch.v2.BatchEngine;
 import com.edlplan.framework.graphics.opengl.buffer.BufferUtil;
 import com.edlplan.framework.graphics.opengl.objs.GLTexture;
+import com.edlplan.framework.graphics.opengl.shader.ShaderGlobals;
 import com.edlplan.framework.graphics.opengl.shader.advance.ColorShader;
 import com.edlplan.framework.graphics.opengl.shader.advance.Texture3DShader;
 

@@ -8,14 +8,14 @@ import android.graphics.Paint;
 import android.opengl.GLES20;
 import android.opengl.GLUtils;
 
-import com.edlplan.framework.math.Color4;
-import com.edlplan.framework.resource.AResource;
 import com.edlplan.framework.MContext;
 import com.edlplan.framework.graphics.opengl.GLWrapped;
+import com.edlplan.framework.math.Color4;
 import com.edlplan.framework.math.IQuad;
 import com.edlplan.framework.math.Quad;
 import com.edlplan.framework.math.RectF;
 import com.edlplan.framework.math.Vec2;
+import com.edlplan.framework.resource.AResource;
 
 import java.io.File;
 import java.io.FileInputStream;

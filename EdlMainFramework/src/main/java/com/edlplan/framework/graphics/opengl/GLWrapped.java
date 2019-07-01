@@ -6,10 +6,10 @@ import android.util.Log;
 
 import com.edlplan.framework.graphics.opengl.batch.v2.BatchEngine;
 import com.edlplan.framework.graphics.opengl.bufferObjects.FBOPool;
-import com.edlplan.framework.math.Color4;
 import com.edlplan.framework.graphics.opengl.objs.GLTexture;
-import com.edlplan.framework.utils.interfaces.Setter;
+import com.edlplan.framework.math.Color4;
 import com.edlplan.framework.utils.advance.BooleanSetting;
+import com.edlplan.framework.utils.interfaces.Setter;
 
 import java.nio.Buffer;
 import java.util.Stack;
@@ -104,7 +104,6 @@ public class GLWrapped {
         py1 = y1;
         ph = h;
     }
-
 
 
     public static void setClearColor(float r, float g, float b, float a) {

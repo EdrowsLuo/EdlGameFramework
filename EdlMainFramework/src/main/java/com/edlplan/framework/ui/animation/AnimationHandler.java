@@ -1,8 +1,8 @@
 package com.edlplan.framework.ui.animation;
 
+import com.edlplan.framework.timing.Loopable;
 import com.edlplan.framework.utils.MLog;
 import com.edlplan.framework.utils.SafeList;
-import com.edlplan.framework.timing.Loopable;
 
 import java.util.Iterator;
 
