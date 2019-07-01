@@ -25,12 +25,16 @@ public class DrawLinePath {
 
     public final Vec2 textureEnd = new Vec2(0.99f, 0.99f);
 
-    public DrawLinePath(AbstractPath p, FloatRef alpha) {
+    private float width;
+
+    public DrawLinePath(AbstractPath p, FloatRef alpha, float width) {
         this.alpha = alpha;
+        this.width = width;
         path = p;
     }
 
-    public DrawLinePath(AbstractPath p) {
+    public DrawLinePath(AbstractPath p, float width) {
+        this.width = width;
         alpha = new FloatRef(1);
         path = p;
     }
@@ -55,7 +59,7 @@ public class DrawLinePath {
             theta += FMath.Pi;
 
         /* current = org + atCircle(...)*width */
-        Vec3 current = new Vec3(Vec2.atCircle(theta).zoom(path.getWidth()).add(org), Z_SIDE);
+        Vec3 current = new Vec3(Vec2.atCircle(theta).zoom(width).add(org), Z_SIDE);
 
         Vec3 orgAtLayer3D = new Vec3(org, Z_MIDDLE);
         for (int i = 1; i <= amountPoints; i++) {
@@ -65,7 +69,7 @@ public class DrawLinePath {
                             current,
                             current = new Vec3(
                                     Vec2.atCircle(theta + dir * Math.min(i * step, thetaDiff))
-                                            .zoom(path.getWidth())
+                                            .zoom(width)
                                             .add(org),
                                     Z_SIDE
                             ),
@@ -79,7 +83,7 @@ public class DrawLinePath {
     }
 
     private void addLineQuads(Vec2 ps, Vec2 pe) {
-        Vec2 oth_expand = Vec2.lineOthNormal(ps, pe).zoom(path.getWidth());
+        Vec2 oth_expand = Vec2.lineOthNormal(ps, pe).zoom(width);
 
         Vec3 startL = new Vec3(ps.copy().add(oth_expand), Z_SIDE);
         Vec3 startR = new Vec3(ps.copy().minus(oth_expand), Z_SIDE);

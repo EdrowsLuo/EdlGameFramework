@@ -1,51 +1,15 @@
 package com.edlplan.framework.math.line;
 
-import com.edlplan.framework.math.RectF;
 import com.edlplan.framework.math.Vec2;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.edlplan.framework.utils.StructArray;
 
 public class LinePath implements AbstractPath {
-    private List<Vec2> positions;
+    private StructArray<Vec2> positions;
 
-    private float maxX, minX, maxY, minY;
-
-    private float width;
-
-    private PathMeasurer measurer;
-
-    //private float tolerance=0.1f;
-
-    public LinePath(List<Vec2> ps, float width) {
-        positions = ps;
-        this.width = width;
-        recomputeBounds();
-    }
-
-    public LinePath(float width) {
-        positions = new ArrayList<Vec2>();
-        this.width = width;
-    }
+    private PathMeasurer measurer, measurerCached;
 
     public LinePath() {
-        positions = new ArrayList<Vec2>();
-    }
-
-    public float getMaxX() {
-        return maxX;
-    }
-
-    public float getMinX() {
-        return minX;
-    }
-
-    public float getMaxY() {
-        return maxY;
-    }
-
-    public float getMinY() {
-        return minY;
+        positions = new StructArray<>(Vec2::new);
     }
 
     public PathMeasurer getMeasurer() {
@@ -53,11 +17,16 @@ public class LinePath implements AbstractPath {
     }
 
     public void measure() {
-        if (measurer != null) {
-            measurer.clear();
+        if (measurer == null) {
+            measurer = measurerCached == null ? new PathMeasurer(this) : measurerCached;
         }
-        measurer = new PathMeasurer(this);
         measurer.measure();
+    }
+
+    public void clear() {
+        positions.clear();
+        measurerCached = measurer;
+        measurer = null;
     }
 
     /**
@@ -70,16 +39,6 @@ public class LinePath implements AbstractPath {
             add(added);
             measurer.onAddPoint(added, positions.get(positions.size() - 2));
         }
-    }
-
-    /**
-     *
-     */
-    public void translate(float dx, float dy) {
-        for (Vec2 v : positions) {
-            v.add(dx, dy);
-        }
-        recomputeBounds();
     }
 
     @Override
@@ -96,72 +55,12 @@ public class LinePath implements AbstractPath {
         return get(size() - 1);
     }
 
-    public List<Vec2> getAll() {
+    public StructArray<Vec2> getAll() {
         return positions;
-    }
-
-    public RectF getDrawArea() {
-        return RectF.ltrb(minX - width, minY - width, maxX + width, maxY + width);
-    }
-
-    public float getAreaWidth() {
-        return maxX - minX + 2 * width;
-    }
-
-    public float getAreaHeight() {
-        return maxY - minY + 2 * width;
-    }
-
-    public void setWidth(float width) {
-        this.width = width;
-        //recomputeBounds();
-    }
-
-    @Override
-    public float getWidth() {
-        return width;
-    }
-
-    public void set(List<Vec2> ps) {
-        positions = ps;
-        recomputeBounds();
-    }
-
-    public void clearPositionData() {
-        positions.clear();
-        resetBounds();
     }
 
     public void add(Vec2 v) {
         positions.add(v);
-        expandBounds(v);
-    }
-
-    private void resetBounds() {
-        minX = minY = 9999999;
-        maxX = maxY = -9999999;
-    }
-
-    private void expandBounds(Vec2 v) {
-        if (v.x < minX) {
-            minX = v.x;
-        }
-        if (v.x > maxX) {
-            maxX = v.x;
-        }
-        if (v.y < minY) {
-            minY = v.y;
-        }
-        if (v.y > maxY) {
-            maxY = v.y;
-        }
-    }
-
-    private void recomputeBounds() {
-        resetBounds();
-        for (Vec2 v : positions) {
-            expandBounds(v);
-        }
     }
 
     public AbstractPath cutPath(float start, float end) {
@@ -175,7 +74,7 @@ public class LinePath implements AbstractPath {
          *这部分是用来防止当剪切路径刚好在路径点上的情况。。
          *不过现在测试感觉没什么用，暂时注释掉
          */
-		
+
 		/*
 		if(Vec2.near(get(s),startPoint,tolerance)){
 			if(Vec2.near(get(e),endPoint,tolerance)){
@@ -217,11 +116,6 @@ public class LinePath implements AbstractPath {
             return size;
         }
 
-        @Override
-        public float getWidth() {
-
-            return LinePath.this.getWidth();
-        }
     }
 
     public class SubLinePathL implements AbstractPath {
@@ -253,11 +147,6 @@ public class LinePath implements AbstractPath {
             return size;
         }
 
-        @Override
-        public float getWidth() {
-
-            return LinePath.this.getWidth();
-        }
     }
 
     public class SubLinePathR implements AbstractPath {
@@ -289,11 +178,6 @@ public class LinePath implements AbstractPath {
             return size;
         }
 
-        @Override
-        public float getWidth() {
-
-            return LinePath.this.getWidth();
-        }
     }
 
     public class SubLinePathLR implements AbstractPath {
@@ -338,10 +222,5 @@ public class LinePath implements AbstractPath {
             return size;
         }
 
-        @Override
-        public float getWidth() {
-
-            return LinePath.this.getWidth();
-        }
     }
 }
