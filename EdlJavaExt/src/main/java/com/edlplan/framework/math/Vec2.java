@@ -41,18 +41,41 @@ public class Vec2 implements IVec2 {
         return lengthSquared(v1, v2) < t;
     }
 
+    @Deprecated
     public static Vec2 onLine(Vec2 v1, Vec2 v2, float p) {
         return v1.copy().zoom(1 - p).add(v2.copy().zoom(p));
     }
 
+    @Deprecated
     public static Vec2 onLineLength(Vec2 v1, Vec2 v2, float l) {
         float ll = length(v1, v2);
         return ll <= 0.0000001 ? v1 : onLine(v1, v2, l / ll);
     }
 
+    @Deprecated
     public static Vec2 lineOthNormal(Vec2 ps, Vec2 pe) {
         Vec2 v = pe.copy().minus(ps).toOrthogonalDirectionNormal();
         return v;
+    }
+
+    public static Vec2 onLineLength(Vec2 v1, Vec2 v2, float l, Vec2 target) {
+        float ll = length(v1, v2);
+        return ll <= 0.0000001 ? v1 : onLine(v1, v2, l / ll, target);
+    }
+
+    public static Vec2 onLine(Vec2 v1, Vec2 v2, float p, Vec2 target) {
+        if (target==null) target = new Vec2();
+        target.set(v1);
+        target.zoom(1 - p).add(v2.x * p, v2.y * p);
+        return target;
+    }
+
+    public static Vec2 lineOthNormal(Vec2 ps, Vec2 pe, Vec2 target) {
+        if (target==null) target = new Vec2();
+        target.set(pe);
+        target.minus(ps);
+        target.toOrthogonalDirectionNormal();
+        return target;
     }
 
     public static float lengthSquared(float x, float y) {
@@ -65,6 +88,12 @@ public class Vec2 implements IVec2 {
 
     public static Vec2 atCircle(float ang) {
         return new Vec2((float) Math.cos(ang), (float) Math.sin(ang));
+    }
+
+    public static Vec2 atCircle(float ang, Vec2 target) {
+        if (target==null) target = new Vec2();
+        target.set((float) Math.cos(ang), (float) Math.sin(ang));
+        return target;
     }
 
     public static float calTheta(Vec2 start, Vec2 end) {
