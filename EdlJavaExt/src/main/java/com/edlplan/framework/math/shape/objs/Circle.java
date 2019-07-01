@@ -1,8 +1,8 @@
-package com.edlplan.framework.graphics.shape.objs;
+package com.edlplan.framework.math.shape.objs;
 
-import com.edlplan.framework.graphics.shape.IPath;
-import com.edlplan.framework.graphics.shape.Path;
-import com.edlplan.framework.graphics.shape.PathBuilder;
+import com.edlplan.framework.math.shape.IPath;
+import com.edlplan.framework.math.shape.Path;
+import com.edlplan.framework.math.shape.PathBuilder;
 import com.edlplan.framework.math.FMath;
 import com.edlplan.framework.math.Vec2;
 

@@ -1,4 +1,4 @@
-package com.edlplan.framework.graphics.shape;
+package com.edlplan.framework.math.shape;
 
 public interface Shape {
 

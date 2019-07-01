@@ -7,9 +7,9 @@ import com.edlplan.framework.graphics.opengl.GLCanvas2D;
 import com.edlplan.framework.graphics.opengl.objs.AbstractTexture;
 import com.edlplan.framework.graphics.opengl.objs.GLTexture;
 import com.edlplan.framework.graphics.opengl.shader.advance.ColorShader;
-import com.edlplan.framework.graphics.shape.IHasPath;
-import com.edlplan.framework.graphics.shape.IPath;
-import com.edlplan.framework.graphics.shape.Shape;
+import com.edlplan.framework.math.shape.IHasPath;
+import com.edlplan.framework.math.shape.IPath;
+import com.edlplan.framework.math.shape.Shape;
 import com.edlplan.framework.math.Color4;
 import com.edlplan.framework.math.Vec2;
 
