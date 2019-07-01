@@ -38,6 +38,13 @@ public class Vec3 {
         return this;
     }
 
+    public Vec3 set(Vec2 v, float z) {
+        this.x = v.x;
+        this.y = v.y;
+        this.z = z;
+        return this;
+    }
+
     public Vec3 add(Vec3 v) {
         return add(v.x, v.y, v.z);
     }

@@ -12,14 +12,14 @@ public class StructArray<T> {
 
     private int limit, offset;
 
-    private Constructor<T> constructor;
+    private Factory<T> constructor;
 
-    public StructArray(int size, Constructor<T> constructor) {
+    public StructArray(int size, Factory<T> constructor) {
         ary = new Object[size];
         this.constructor = constructor;
     }
 
-    public StructArray(Constructor<T> constructor) {
+    public StructArray(Factory<T> constructor) {
         this(16, constructor);
     }
 
@@ -35,7 +35,7 @@ public class StructArray<T> {
         }
         offset++;
         if (limit < offset) {
-            ary[limit++] = constructor.createNew();
+            ary[limit++] = constructor.create();
         }
         return (T) ary[offset - 1];
     }
