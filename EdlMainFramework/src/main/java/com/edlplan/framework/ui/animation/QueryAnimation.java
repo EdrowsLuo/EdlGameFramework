@@ -1,5 +1,6 @@
 package com.edlplan.framework.ui.animation;
 
+import com.edlplan.framework.easing.Easing;
 import com.edlplan.framework.ui.animation.interpolate.ValueInterpolator;
 import com.edlplan.framework.ui.animation.precise.BasePreciseAnimation;
 import com.edlplan.framework.utils.interfaces.InvokeSetter;

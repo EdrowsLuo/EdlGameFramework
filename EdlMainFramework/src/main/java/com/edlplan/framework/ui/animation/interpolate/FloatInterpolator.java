@@ -1,6 +1,7 @@
 package com.edlplan.framework.ui.animation.interpolate;
 
-import com.edlplan.framework.ui.animation.Easing;
+import com.edlplan.framework.easing.Easing;
+import com.edlplan.framework.easing.EasingManager;
 
 public class FloatInterpolator implements ValueInterpolator<Float> {
     public static FloatInterpolator Instance = new FloatInterpolator();

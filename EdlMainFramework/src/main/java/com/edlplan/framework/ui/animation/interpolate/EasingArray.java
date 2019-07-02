@@ -1,6 +1,8 @@
 package com.edlplan.framework.ui.animation.interpolate;
 
-import com.edlplan.framework.ui.animation.Easing;
+import com.edlplan.framework.easing.Easing;
+import com.edlplan.framework.easing.EasingInterpolator;
+import com.edlplan.framework.easing.EasingManager;
 
 public class EasingArray {
 

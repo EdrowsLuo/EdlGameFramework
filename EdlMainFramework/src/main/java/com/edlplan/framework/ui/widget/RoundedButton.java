@@ -8,7 +8,7 @@ import com.edlplan.framework.ui.EdView;
 import com.edlplan.framework.ui.ViewConfiguration;
 import com.edlplan.framework.ui.animation.ComplexAnimation;
 import com.edlplan.framework.ui.animation.ComplexAnimationBuilder;
-import com.edlplan.framework.ui.animation.Easing;
+import com.edlplan.framework.easing.Easing;
 import com.edlplan.framework.ui.animation.FloatQueryAnimation;
 
 public class RoundedButton extends RelativeContainer {

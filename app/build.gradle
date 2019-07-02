@@ -30,6 +30,8 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
     implementation 'com.github.EdrowsLuo:JitPackTest:v0.0.2'
     implementation project(path: ':EdlMainFramework')
+    implementation project(path: ':EdlJavaExt')
+    implementation project(path: ':EdlOsbSupport')
     //implementation 'com.github.EdrowsLuo.JitPackTest:mylibrary:0.0.2'
     //implementation 'com.github.EdrowsLuo:osu-lab:f23bda8234'
 }

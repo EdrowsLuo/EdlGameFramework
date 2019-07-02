@@ -1,4 +1,4 @@
-package com.edlplan.framework.ui.animation;
+package com.edlplan.framework.easing;
 
 // http://easings.net/
 public enum Easing {

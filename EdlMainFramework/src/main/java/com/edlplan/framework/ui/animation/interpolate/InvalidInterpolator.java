@@ -1,7 +1,7 @@
 package com.edlplan.framework.ui.animation.interpolate;
 
 import com.edlplan.framework.graphics.opengl.BlendType;
-import com.edlplan.framework.ui.animation.Easing;
+import com.edlplan.framework.easing.Easing;
 
 public class InvalidInterpolator<T> implements ValueInterpolator<T> {
     public static InvalidInterpolator<Boolean> ForBoolean = new InvalidInterpolator<Boolean>();

@@ -1,7 +1,8 @@
 package com.edlplan.framework.ui.animation.interpolate;
 
+import com.edlplan.framework.easing.EasingManager;
 import com.edlplan.framework.math.Vec2;
-import com.edlplan.framework.ui.animation.Easing;
+import com.edlplan.framework.easing.Easing;
 
 public class Vec2Interpolator implements ValueInterpolator<Vec2> {
     public static Vec2Interpolator Instance = new Vec2Interpolator();

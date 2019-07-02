@@ -1,4 +1,4 @@
-package com.edlplan.framework.ui.animation.interpolate;
+package com.edlplan.framework.easing;
 
 @FunctionalInterface
 public interface EasingInterpolator {

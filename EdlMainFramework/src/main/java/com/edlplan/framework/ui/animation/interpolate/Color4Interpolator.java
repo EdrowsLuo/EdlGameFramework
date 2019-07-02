@@ -1,7 +1,8 @@
 package com.edlplan.framework.ui.animation.interpolate;
 
+import com.edlplan.framework.easing.EasingManager;
 import com.edlplan.framework.math.Color4;
-import com.edlplan.framework.ui.animation.Easing;
+import com.edlplan.framework.easing.Easing;
 
 public class Color4Interpolator implements ValueInterpolator<Color4> {
     public static Color4Interpolator Instance = new Color4Interpolator();

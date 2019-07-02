@@ -2,9 +2,10 @@ package com.edlplan.framework.math;
 
 import android.graphics.Color;
 
+import java.io.Serializable;
 import java.nio.FloatBuffer;
 
-public class Color4 {
+public class Color4 implements Serializable {
     public static final int FLOATS = 4;
 
     public static final Color4 ONE = Color4.rgba(1, 1, 1, 1, true);
@@ -282,6 +283,12 @@ public class Color4 {
 
     public static Color4 rgb255(float r, float g, float b) {
         return Color4.rgba(r / 255f, g / 255f, b / 255f, 1);
+    }
+
+    public static Color4 rgb255(float r, float g, float b, Color4 color4) {
+        color4.set(r / 255f, g / 255f, b / 255f, 1);
+        color4.premultiple = true;
+        return color4;
     }
 
     public static Color4 argb255(int v) {

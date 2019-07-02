@@ -311,6 +311,14 @@ public class Vec2 implements IVec2 {
         return new Vec2(this);
     }
 
+    public Vec2 copy(Vec2 target) {
+        if (target == null) {
+            target = new Vec2();
+        }
+        target.set(this);
+        return target;
+    }
+
     public Vec3 toVec3(float z) {
         return new Vec3(this, z);
     }

@@ -1,6 +1,6 @@
-package com.edlplan.framework.ui.animation.interpolate;
+package com.edlplan.framework.easing;
 
-import com.edlplan.framework.ui.animation.Easing;
+import com.edlplan.framework.easing.Easing;
 
 public class EasingManager {
     static final double elastic_const = 2 * Math.PI / .3;
@@ -11,94 +11,7 @@ public class EasingManager {
 
     static final double bounce_const = 1 / 2.75;
 
-    static {
-		/*
-		System.out.println("const float elastic_const="+elastic_const+";");
-		System.out.println("const float elastic_const2="+elastic_const2+";");
-		System.out.println("const float back_const="+back_const+";");
-		System.out.println("const float back_const2="+back_const2+";");
-		System.out.println("const float bounce_const="+bounce_const+";");
-		double v=1;
-		System.out.println(--v*v*v*4+1);
-		*/
-    }
-
     public static final boolean ENABLE_EASING = true;
-	/*
-	private EasingInterpolator[] interpolators={
-		//None
-		new EasingNone(),
-		//Out
-		new EasingOut(),
-		//In
-		,
-		//InQuad
-		,
-		//OutQuad
-		,
-		//InOutQuad
-		,
-		//InCubic
-		,
-		//OutCubic
-		,
-		//InOutCubic
-		,
-		//InQuart
-		,
-		//OutQuart
-		,
-		//InOutQuart
-		,
-		//InQuint
-		,
-		//OutQuint
-		,
-		//InOutQuint
-		,
-		//InSine
-		,
-		//OutSine
-		,
-		//InOutSine
-		,
-		//InExpo
-		,
-		//OutExpo
-		,
-		//InOutExpo
-		,
-		//InCirc
-		,
-		//OutCirc
-		,
-		//InOutCirc
-		,
-		//InElastic
-		,
-		//OutElastic
-		,
-		//OutElasticHalf
-		,
-		//OutElasticQuarter
-		,
-		//InOutElastic
-		,
-		//InBack
-		,
-		//OutBack
-		,
-		//InOutBack
-		,
-		//InBounce
-		,
-		//OutBounce
-		,
-		//InOutBounce
-		,
-		//OutPow10
-		
-	};*/
 
     public static double apply(Easing easing, double v) {
         if (ENABLE_EASING) {
