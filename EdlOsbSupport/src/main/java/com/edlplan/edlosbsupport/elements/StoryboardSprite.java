@@ -5,6 +5,7 @@ import com.edlplan.framework.math.Anchor;
 import com.edlplan.framework.utils.CharArray;
 
 import java.io.Serializable;
+import java.util.Set;
 
 public class StoryboardSprite extends IStoryboardElement implements Serializable{
 
@@ -41,6 +42,14 @@ public class StoryboardSprite extends IStoryboardElement implements Serializable
                         return null;
                 }
             }
+        }
+    }
+
+    public static void main(String[] args) {
+        for (int i = 0; i < Origin.values().length; i++) {
+            Origin origin = Origin.values()[i];
+            String name = origin.name();
+            System.out.println(name + " : " + Origin.parse(new CharArray(name)));
         }
     }
 
@@ -99,6 +108,31 @@ public class StoryboardSprite extends IStoryboardElement implements Serializable
     public String spriteFilename;
 
     public float startX, startY;
+
+    public transient int depth;
+
+    public void toFlat() {
+        rootGroup.toFlatGroup();
+    }
+
+    /**
+     * 只能在toFlat之后调用
+     */
+    public void sort() {
+        rootGroup.sort();
+    }
+
+    public double startTime() {
+        return rootGroup.startTime();
+    }
+
+    public double endTime() {
+        return rootGroup.endTime();
+    }
+
+    public void addAllTextures(Set<String> textures) {
+        textures.add(spriteFilename);
+    }
 
     @Override
     public void clear() {

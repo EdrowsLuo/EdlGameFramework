@@ -37,8 +37,7 @@ public enum Easing {
     InBounce,//32
     OutBounce,//33
     InOutBounce,//34
-    OutPow10,//35
-    Jump;//36
+    OutPow10;//35
     public final int id;
 
     Easing() {

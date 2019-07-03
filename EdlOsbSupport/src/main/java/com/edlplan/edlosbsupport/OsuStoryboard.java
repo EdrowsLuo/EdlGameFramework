@@ -4,6 +4,9 @@ import com.edlplan.edlosbsupport.elements.IStoryboardElement;
 import com.edlplan.edlosbsupport.elements.StoryboardSprite;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 public class OsuStoryboard implements Serializable {
 
@@ -23,6 +26,20 @@ public class OsuStoryboard implements Serializable {
                 layers[i] = null;
             }
         }
+    }
+
+    public Set<String> getAllNeededTextures() {
+        HashSet<String> textures = new HashSet<>();
+        for (OsuStoryboardLayer layer : layers) {
+            if (layer != null) {
+                for (IStoryboardElement element : layer.elements) {
+                    if (element instanceof StoryboardSprite) {
+                        ((StoryboardSprite) element).addAllTextures(textures);
+                    }
+                }
+            }
+        }
+        return textures;
     }
 
     @Override

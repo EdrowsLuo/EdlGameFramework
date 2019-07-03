@@ -6,6 +6,7 @@ import com.edlplan.framework.graphics.opengl.objs.AbstractTexture;
 import com.edlplan.framework.graphics.opengl.objs.GLTexture;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -38,6 +39,12 @@ public class TexturePool {
     public void addAll(List<MsgTexture> list) {
         for (MsgTexture t : list) {
             directPut(t.msg, t.texture);
+        }
+    }
+
+    public void addAll(Collection<String> msgs) {
+        for (String s : msgs) {
+            addTexture(s);
         }
     }
 

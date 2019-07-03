@@ -1,6 +1,7 @@
 package com.edlplan.framework.easing;
 
 import com.edlplan.framework.easing.Easing;
+import com.edlplan.framework.math.FMath;
 
 public class EasingManager {
     static final double elastic_const = 2 * Math.PI / .3;
@@ -13,8 +14,17 @@ public class EasingManager {
 
     public static final boolean ENABLE_EASING = true;
 
+    public static EasingInterpolator[] easingInterpolators = new EasingInterpolator[Easing.values().length];
+
+    static {
+        for (int i = 0; i < easingInterpolators.length; i++) {
+            easingInterpolators[i] = toInterpolator(Easing.getEasing(i));
+        }
+    }
+
     public static double apply(Easing easing, double v) {
-        if (ENABLE_EASING) {
+        return easingInterpolators[easing.id].interpolate((float) v);
+        /*if (ENABLE_EASING) {
             switch (easing) {
                 case None:
                     return v;
@@ -118,17 +128,15 @@ public class EasingManager {
 
                 case OutPow10:
                     return --v * Math.pow(v, 10) + 1;
-                case Jump:
-                    //return (v==1)?1:0;
                 default:
                     return v;
             }
         } else {
             return v;
-        }
+        }*/
     }
 
-   /* public static EasingInterpolator toInterpolator(Easing easing) {
+   private static EasingInterpolator toInterpolator(Easing easing) {
         if (ENABLE_EASING) {
             switch (easing) {
                 case None:
@@ -160,11 +168,11 @@ public class EasingManager {
                 case InOutQuint:
                     return v -> v < .5?( v * v * v * v * v * 16):(--v * v * v * v * v * 16 + 1);
                 case InSine:
-                    return v ->  1 - FMath.cos(v * Math.PI * .5);
+                    return v -> (float) (1 - Math.cos(v * Math.PI * .5));
                 case OutSine:
-                    return v -> FMath.sin(v * Math.PI * .5);
+                    return v -> (float) Math.sin(v * Math.PI * .5);
                 case InOutSine:
-                    return v -> .5f - .5f * FMath.cos(Math.PI * v);
+                    return v -> (float) (.5f - .5f * Math.cos(Math.PI * v));
                 case InExpo:
                     return v -> (float) Math.pow(2, 10 * (v - 1));
                 case OutExpo:
@@ -176,61 +184,68 @@ public class EasingManager {
                 case OutCirc:
                     return v -> (float) Math.sqrt(1 - --v * v);
                 case InOutCirc:
-                    if ((v *= 2) < 1) return .5 - .5 * Math.sqrt(1 - v * v);
-                    return .5 * Math.sqrt(1 - (v -= 2) * v) + .5;
-
+                    return v -> {
+                        if ((v *= 2) < 1) return (float) (.5 - .5 * Math.sqrt(1 - v * v));
+                        return (float) (.5 * Math.sqrt(1 - (v -= 2) * v) + .5);
+                    };
                 case InElastic:
-                    return -Math.pow(2, -10 + 10 * v) * Math.sin((1 - elastic_const2 - v) * elastic_const);
+                    return v -> (float) (-Math.pow(2, -10 + 10 * v) * Math.sin((1 - elastic_const2 - v) * elastic_const));
                 case OutElastic:
-                    return Math.pow(2, -10 * v) * Math.sin((v - elastic_const2) * elastic_const) + 1;
+                    return v -> (float) (Math.pow(2, -10 * v) * Math.sin((v - elastic_const2) * elastic_const) + 1);
                 case OutElasticHalf:
-                    return Math.pow(2, -10 * v) * Math.sin((.5 * v - elastic_const2) * elastic_const) + 1;
+                    return v -> (float) (Math.pow(2, -10 * v) * Math.sin((.5 * v - elastic_const2) * elastic_const) + 1);
                 case OutElasticQuarter:
-                    return Math.pow(2, -10 * v) * Math.sin((.25 * v - elastic_const2) * elastic_const) + 1;
+                    return v -> (float) (Math.pow(2, -10 * v) * Math.sin((.25 * v - elastic_const2) * elastic_const) + 1);
                 case InOutElastic:
-                    if ((v *= 2) < 1)
-                        return -.5 * Math.pow(2, -10 + 10 * v) * Math.sin((1 - elastic_const2 * 1.5 - v) * elastic_const / 1.5);
-                    return .5 * Math.pow(2, -10 * --v) * Math.sin((v - elastic_const2 * 1.5) * elastic_const / 1.5) + 1;
-
+                    return v -> {
+                        if ((v *= 2) < 1)
+                            return (float) (-.5 * Math.pow(2, -10 + 10 * v) * Math.sin((1 - elastic_const2 * 1.5 - v) * elastic_const / 1.5));
+                        return (float) (.5 * Math.pow(2, -10 * --v) * Math.sin((v - elastic_const2 * 1.5) * elastic_const / 1.5) + 1);
+                    };
                 case InBack:
-                    return v * v * ((back_const + 1) * v - back_const);
+                    return v -> (float) (v * v * ((back_const + 1) * v - back_const));
                 case OutBack:
-                    return --v * v * ((back_const + 1) * v + back_const) + 1;
+                    return v -> (float) (--v * v * ((back_const + 1) * v + back_const) + 1);
                 case InOutBack:
-                    if ((v *= 2) < 1) return .5 * v * v * ((back_const2 + 1) * v - back_const2);
-                    return .5 * ((v -= 2) * v * ((back_const2 + 1) * v + back_const2) + 2);
-
+                    return v -> {
+                        if ((v *= 2) < 1)
+                            return (float) (.5 * v * v * ((back_const2 + 1) * v - back_const2));
+                        return (float) (.5 * ((v -= 2) * v * ((back_const2 + 1) * v + back_const2) + 2));
+                    };
                 case InBounce:
-                    v = 1 - v;
-                    if (v < bounce_const)
-                        return 1 - 7.5625 * v * v;
-                    if (v < 2 * bounce_const)
-                        return 1 - (7.5625 * (v -= 1.5 * bounce_const) * v + .75);
-                    if (v < 2.5 * bounce_const)
-                        return 1 - (7.5625 * (v -= 2.25 * bounce_const) * v + .9375);
-                    return 1 - (7.5625 * (v -= 2.625 * bounce_const) * v + .984375);
+                    return v -> {
+                        v = 1 - v;
+                        if (v < bounce_const)
+                            return (float) (1 - 7.5625 * v * v);
+                        if (v < 2 * bounce_const)
+                            return (float) (1 - (7.5625 * (v -= 1.5 * bounce_const) * v + .75));
+                        if (v < 2.5 * bounce_const)
+                            return (float) (1 - (7.5625 * (v -= 2.25 * bounce_const) * v + .9375));
+                        return (float) (1 - (7.5625 * (v -= 2.625 * bounce_const) * v + .984375));
+                    };
                 case OutBounce:
-                    if (v < bounce_const)
-                        return 7.5625 * v * v;
-                    if (v < 2 * bounce_const)
-                        return 7.5625 * (v -= 1.5 * bounce_const) * v + .75;
-                    if (v < 2.5 * bounce_const)
-                        return 7.5625 * (v -= 2.25 * bounce_const) * v + .9375;
-                    return 7.5625 * (v -= 2.625 * bounce_const) * v + .984375;
+                    return v -> {
+                        if (v < bounce_const)
+                            return (float) (7.5625 * v * v);
+                        if (v < 2 * bounce_const)
+                            return (float) (7.5625 * (v -= 1.5 * bounce_const) * v + .75);
+                        if (v < 2.5 * bounce_const)
+                            return (float) (7.5625 * (v -= 2.25 * bounce_const) * v + .9375);
+                        return (float) (7.5625 * (v -= 2.625 * bounce_const) * v + .984375);
+                    };
                 case InOutBounce:
-                    if (v < .5) return .5 - .5 * apply(Easing.OutBounce, 1 - v * 2);
-                    return apply(Easing.OutBounce, (v - .5) * 2) * .5 + .5;
-
+                    return v -> {
+                        if (v < .5) return (float) (.5 - .5 * apply(Easing.OutBounce, 1 - v * 2));
+                        return (float) (apply(Easing.OutBounce, (v - .5) * 2) * .5 + .5);
+                    };
                 case OutPow10:
-                    return --v * Math.pow(v, 10) + 1;
-                case Jump:
-                    //return (v==1)?1:0;
+                    return v -> (float) (--v * Math.pow(v, 10) + 1);
                 default:
-                    return v;
+                    return v -> v;
             }
 
         } else {
-            return v;
+            return v -> v;
         }
-    }*/
+    }
 }

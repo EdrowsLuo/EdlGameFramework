@@ -235,8 +235,8 @@ public class OsbBaseParser {
                             float endG = spl.hasNext() ? Float.parseFloat(spl.next().toString()) : startG;
                             float endB = spl.hasNext() ? Float.parseFloat(spl.next().toString()) : startB;
                             CommandColor4 commandColor4 = group.addColorCommand(Target.Color, startTime, endTime, easing);
-                            Color4.rgb255(startR, startG, startB, commandColor4.start);
-                            Color4.rgb255(endR, endG, endB, commandColor4.end);
+                            Color4.rgb255(startR, startG, startB, commandColor4.startValue);
+                            Color4.rgb255(endR, endG, endB, commandColor4.endValue);
                         }
                         break;
                         case 'P': {

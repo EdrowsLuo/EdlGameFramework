@@ -100,6 +100,13 @@ public class Color4 implements Serializable {
         premultiple = prem;
     }
 
+    public void set(Color4 v1, Color4 v2, float progress) {
+        r = v1.r + (v2.r - v1.r) * progress;
+        g = v1.g + (v2.g - v1.g) * progress;
+        b = v1.b + (v2.b - v1.b) * progress;
+        a = v1.a + (v2.a - v1.a) * progress;
+    }
+
     public Color4 toPremultipledThis() {
         if (premultiple) {
             return this;

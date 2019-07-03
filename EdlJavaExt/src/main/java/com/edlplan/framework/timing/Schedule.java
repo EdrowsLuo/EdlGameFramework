@@ -1,7 +1,11 @@
 package com.edlplan.framework.timing;
 
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.List;
+import java.util.ListIterator;
 
 /**
  * 管理一批事件，被动更新时间，在特定时间触发特定事件
@@ -9,7 +13,23 @@ import java.util.LinkedList;
 
 public class Schedule implements TimeUpdateable {
 
+    private static Comparator<Task> COMPARATOR = (a, b) -> Double.compare(a.time, b.time);
+
     private LinkedList<Task> tasks = new LinkedList<>();
+
+    @SuppressWarnings("unchecked")
+    public void setTasks(List<Task> tasks) {
+        Object[] a = tasks.toArray();
+        Arrays.sort(a, (Comparator) COMPARATOR);
+        this.tasks.clear();
+        for (Object b : a) {
+            this.tasks.add((Task) b);
+        }
+    }
+
+    public LinkedList<Task> getTasks() {
+        return tasks;
+    }
 
     /**
      * 添加一个事件
@@ -42,10 +62,13 @@ public class Schedule implements TimeUpdateable {
 
     @Override
     public void update(double time) {
+        //System.out.println("Update to " + time);
+        //if (!tasks.isEmpty()) System.out.println("First " + tasks.getFirst());
         Task task;
         while ((!tasks.isEmpty()) && (task = tasks.getFirst()).time <= time) {
             task.runnable.run();
             tasks.removeFirst();
+            //System.out.println("Run " + task);
         }
     }
 
@@ -63,5 +86,11 @@ public class Schedule implements TimeUpdateable {
             this.time = time;
             this.runnable = runnable;
         }
+
+        @Override
+        public String toString() {
+            return "[" + time + "] " + runnable;
+        }
+
     }
 }

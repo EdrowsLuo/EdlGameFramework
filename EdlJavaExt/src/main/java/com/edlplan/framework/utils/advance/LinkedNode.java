@@ -8,6 +8,15 @@ public final class LinkedNode<T> {
 
     public T value;
 
+    public LinkedNode() {
+
+    }
+
+    public LinkedNode(T t) {
+        value = t;
+    }
+
+
     /**
      *
      */
