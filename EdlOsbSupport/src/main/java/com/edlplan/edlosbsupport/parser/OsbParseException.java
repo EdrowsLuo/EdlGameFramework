@@ -6,4 +6,8 @@ public class OsbParseException extends Exception {
         super(msg);
     }
 
+    public OsbParseException(Throwable c) {
+        super(c);
+    }
+
 }
