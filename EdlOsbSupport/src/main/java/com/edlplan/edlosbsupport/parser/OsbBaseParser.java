@@ -240,7 +240,7 @@ public class OsbBaseParser {
                         }
                         break;
                         case 'P': {
-                            switch (spl.next().get(1)) {
+                            switch (spl.next().get(0)) {
                                 case 'A':
                                     group.addCommand(Target.BlendingMode, startTime, endTime, true, startTime == endTime, easing);
                                     break;

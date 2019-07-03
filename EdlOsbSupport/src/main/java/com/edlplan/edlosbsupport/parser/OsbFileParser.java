@@ -89,7 +89,7 @@ public class OsbFileParser {
                 while (l.indexOf('$') >= 0) {
                     String origin = l;
                     for (Map.Entry<String, String> v : variables.entrySet()) {
-                        l = line.replace(v.getKey(), v.getValue());
+                        l = l.replace(v.getKey(), v.getValue());
                     }
                     if (l.equals(origin)) {
                         break;

@@ -37,6 +37,7 @@ public abstract class PlayingSprite {
             spriteCommand = (SpriteCommand) command;
             getTimeline(spriteCommand.target).addCommand(spriteCommand);
         }
+        update(sprite.startTime());
     }
 
     public void update(double time) {

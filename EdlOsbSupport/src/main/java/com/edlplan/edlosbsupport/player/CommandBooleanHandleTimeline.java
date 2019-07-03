@@ -11,7 +11,7 @@ public class CommandBooleanHandleTimeline extends CommandHandleTimeline<CommandB
     protected void applyValue(double time) {
         if (currentCommand.endTime < time) {
             value.value = currentCommand.endValue;
-        } else {
+        } else if (time >= currentCommand.startTime) {
             value.value = currentCommand.startValue;
         }
     }

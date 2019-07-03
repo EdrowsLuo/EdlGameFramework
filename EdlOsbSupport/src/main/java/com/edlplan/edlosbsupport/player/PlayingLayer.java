@@ -9,8 +9,25 @@ import com.edlplan.framework.utils.advance.LinkedNode;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.concurrent.Executor;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class PlayingLayer {
+
+    private static final ThreadLocal<ExecutorService> executorService = new ThreadLocal<ExecutorService>(){
+        @Override
+        public ExecutorService get() {
+            ExecutorService service = super.get();
+            if (service != null) {
+                return service;
+            } else {
+                service = Executors.newFixedThreadPool(5);
+                set(service);
+                return service;
+            }
+        }
+    };
 
     private Schedule schedule = new Schedule();
 
@@ -76,7 +93,7 @@ public class PlayingLayer {
             end.insertToPrevious(ary[sprite.depth] = new LinkedNode<>(playingSprite));
         }
         //if (BuildConfig.DEBUG) {
-        //    System.out.println("Add sprite " + playingSprite);
+        //    System.out.println("Add sprite " + ary[sprite.depth].value);
         //}
     }
 
@@ -90,7 +107,10 @@ public class PlayingLayer {
 
     public void update(double time) {
         schedule.update(time);
+        //ExecutorService executor = executorService.get();
         for (LinkedNode<PlayingSprite> s = first.next; s != end; s = s.next) {
+            //final LinkedNode<PlayingSprite> ss = s;
+            //executor.submit(() -> ss.value.update(time));
             s.value.update(time);
         }
     }
