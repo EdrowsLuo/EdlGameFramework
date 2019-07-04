@@ -49,11 +49,11 @@ public class FMath {
     }
 
     public static float clamp(float value, float min, float max) {
-        return value < min ? (value) : (value < max ? value : max);
+        return value < min ? (min) : (value < max ? value : max);
     }
 
     public static double clamp(double value, double min, double max) {
-        return value < min ? (value) : (value < max ? value : max);
+        return value < min ? (min) : (value < max ? value : max);
     }
 
     public static float linear(float progress, float bottom, float top) {

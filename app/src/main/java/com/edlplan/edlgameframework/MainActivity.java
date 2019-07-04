@@ -51,7 +51,13 @@ public class MainActivity extends EdlMainActivity {
                     //"/storage/emulated/0/osu!droid/Songs/大空直美 - DOKIDOKIリズム ～For Chieri rearrange MIX～/ohzora naomi - DOKIDOKI For Chieri rearrange MIX (Edrows Luo).osb"
                     //"/storage/emulated/0/osu!droid/Songs/108529 FujuniseikouyuuP - FREEDMAN/HujuniseikouyuuP - FREEDMAN (val0108).osb"
                     //"/storage/emulated/0/osu!droid/Songs/139525 Lite Show Magic (t+pazolite vs C-Show) - Crack Traxxxx/Lite Show Magic (t+pazolite vs C-Show) - Crack Traxxxx (Fatfan Kolek).osb"
-                    "/storage/emulated/0/osu!droid/Songs/470977 Mili - world.execute(me)/Mili - world.execute(me); (Exile-).osb"
+                    //"/storage/emulated/0/osu!droid/Songs/470977 Mili - world.execute(me)/Mili - world.execute(me); (Exile-).osb"
+                    //"/storage/emulated/0/osu!droid/Songs/582089 Camellia vs Akira Complex - Reality Distortion/Camellia vs Akira Complex - Reality Distortion (rrtyui).osb"
+                    "/storage/emulated/0/osu!droid/Songs/855677 Camellia - Exit This Earth's Atomosphere (Camellia's ''PLANETARY--200STEP'' Remix)/Camellia - Exit This Earth's Atomosphere (Camellia's ''PLANETARY200STEP'' Remix) (ProfessionalBox).osb"
+                    //"/storage/emulated/0/osu!droid/Songs/s2:ginkiha - EOS/ginkiha - EOS (alacat).osb"
+                    //"/storage/emulated/0/osu!droid/Songs/261911 MitiS & MaHi - Blu (Speed Up Ver.)/MitiS & MaHi - Blu (Speed Up Ver.) (Ashasaki).osb"
+                    //"/storage/emulated/0/osu!droid/Songs/310499 Reol - Asymmetry/Reol - Asymmetry (Skystar).osb"
+                    //"/storage/emulated/0/osu!droid/Songs/463479 Nanahira - Bassdrop Freaks (Long Ver.)/Nanahira - Bassdrop Freaks (Long Ver.) (yf_bmp).osb"
             );
             File dir = file.getParentFile();
             BufferedListResource resource = new BufferedListResource(new DirResource(dir));
@@ -135,7 +141,7 @@ public class MainActivity extends EdlMainActivity {
                             Vec2 startOffset = new Vec2(canvas.getWidth() / 2, canvas.getHeight() / 2)
                                     .minus(640 * 0.5f / scale, 480 * 0.5f / scale);
 
-                            canvas.translate(startOffset.x, startOffset.y).expendAxis(scale * 2);//.translate(64, 48);
+                            canvas.translate(startOffset.x, startOffset.y).expendAxis(scale);//.translate(64, 48);
                             if (startTime == -1) {
                                 startTime = Framework.relativePreciseTimeMillion();
                                 osbPlayer.start(0);

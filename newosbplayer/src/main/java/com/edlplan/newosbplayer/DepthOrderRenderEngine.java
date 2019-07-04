@@ -1,8 +1,7 @@
-package com.edlplan.edlgameframework;
+package com.edlplan.newosbplayer;
 
 import com.edlplan.framework.graphics.opengl.BaseCanvas;
 import com.edlplan.framework.graphics.opengl.BlendType;
-import com.edlplan.framework.graphics.opengl.GLWrapped;
 import com.edlplan.framework.graphics.opengl.batch.v2.object.TextureQuadBatch;
 import com.edlplan.framework.utils.advance.LinkedNode;
 

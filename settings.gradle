@@ -1,1 +1,1 @@
-include ':app', ':EdlMainFramework', ':EdlJavaExt', ':LibBASS', ':EdlFrameworkResource', ':EdlAnimationKit', ':EdlOsbSupport'
+include ':app', ':EdlMainFramework', ':EdlJavaExt', ':LibBASS', ':EdlFrameworkResource', ':EdlAnimationKit', ':EdlOsbSupport', ':newosbplayer'
