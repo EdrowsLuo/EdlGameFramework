@@ -120,14 +120,13 @@ public class MainActivity extends EdlMainActivity {
                         file,
                         null);
 
-                //Tracker.createTmpNode("ParseOsb").wrap(() -> {
-                try {
-                    parser.parse();
-
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                //}).then(System.out::println);
+                Tracker.createTmpNode("ParseOsb").wrap(() -> {
+                    try {
+                        parser.parse();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }).then(System.out::println);
                 OsuStoryboard storyboard = parser.getBaseParser().getStoryboard();
 
                 pool.addAll(storyboard.getAllNeededTextures());
@@ -150,6 +149,7 @@ public class MainActivity extends EdlMainActivity {
                         return new EGFStoryboardAnimationSprite(context);
                     }
                 });
+                //osbPlayer.setPreLoad(true);
 
                 System.out.println("Start load to play");
                 Tracker.createTmpNode("LoadToPlaying").wrap(

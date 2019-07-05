@@ -89,8 +89,8 @@ public class OsbBaseParser {
                         StoryboardSprite.Layer layer = StoryboardSprite.Layer.parse(spl.next());
                         StoryboardSprite.Origin origin = StoryboardSprite.Origin.parse(spl.next());
                         String path = cleanFilename(spl.next().toString());
-                        float x = Float.parseFloat(spl.next().toString());
-                        float y = Float.parseFloat(spl.next().toString());
+                        float x = spl.next().parseSimpleFloat();
+                        float y = spl.next().parseSimpleFloat();
                         sprite = new StoryboardSprite();
                         sprite.layer = layer;
                         sprite.origin = origin;
@@ -105,10 +105,10 @@ public class OsbBaseParser {
                         StoryboardSprite.Layer layer = StoryboardSprite.Layer.parse(spl.next());
                         StoryboardSprite.Origin origin = StoryboardSprite.Origin.parse(spl.next());
                         String path = cleanFilename(spl.next().toString());
-                        float x = Float.parseFloat(spl.next().toString());
-                        float y = Float.parseFloat(spl.next().toString());
-                        int frameCount = Integer.parseInt(spl.next().toString());
-                        double frameDelay = Double.parseDouble(spl.next().toString());
+                        float x = spl.next().parseSimpleFloat();
+                        float y = spl.next().parseSimpleFloat();
+                        int frameCount = spl.next().parseSimpleInt();
+                        double frameDelay = spl.next().parseSimpleDouble();
                         StoryboardAnimationSprite.LoopType loopType = StoryboardAnimationSprite.LoopType.parse(spl.next());
                         StoryboardAnimationSprite sprite = new StoryboardAnimationSprite();
                         sprite.layer = layer;
@@ -130,6 +130,11 @@ public class OsbBaseParser {
                         //TODO : Add Storyboard Sample support
                     }
                     break;
+                    case Background:{
+                        spl.next();
+                        storyboard.backgroundFile = cleanFilename(spl.next().toString());
+                    }
+                    break;
                 }
             } else {
 
@@ -149,8 +154,8 @@ public class OsbBaseParser {
                     }
                     break;
                     case 'L': {
-                        double startTime = Double.parseDouble(spl.next().toString());
-                        int loopCount = Integer.parseInt(spl.next().toString());
+                        double startTime = spl.next().parseSimpleDouble();
+                        int loopCount = spl.next().parseSimpleInt();
                         CommandLoop loop = new CommandLoop();
                         loop.loopCount = loopCount;
                         loop.startTime = startTime;
@@ -161,66 +166,66 @@ public class OsbBaseParser {
                     default: {
 
                         Easing easing = Easing.values()[spl.next().get(0) - '0'];
-                        double startTime = Double.parseDouble(spl.next().toString());
+                        double startTime = spl.next().parseSimpleDouble();
 
                         spl.setAutoCache(false);
                         CharArray s3;
                         s3 = spl.hasNext() ? spl.next() : null;
                         spl.setAutoCache(true);
 
-                        double endTime = (s3 == null || s3.length() == 0) ? startTime : Double.parseDouble(s3.toString());
+                        double endTime = (s3 == null || s3.length() == 0) ? startTime : s3.parseSimpleDouble();
 
                         CharArray.saveAllUnusedObject(s3);
 
 
                         switch (commandType.get(0)) {
                             case 'F': {
-                                float startValue = Float.parseFloat(spl.next().toString());
-                                float endValue = spl.hasNext() ? Float.parseFloat(spl.next().toString()) : startValue;
+                                float startValue = spl.next().parseSimpleFloat();
+                                float endValue = spl.hasNext() ? spl.next().parseSimpleFloat() : startValue;
                                 group.addCommand(Target.Alpha, startTime, endTime, startValue, endValue, easing);
                             }
                             break;
                             case 'S': {
-                                float startValue = Float.parseFloat(spl.next().toString());
-                                float endValue = spl.hasNext() ? Float.parseFloat(spl.next().toString()) : startValue;
+                                float startValue = spl.next().parseSimpleFloat();
+                                float endValue = spl.hasNext() ? spl.next().parseSimpleFloat() : startValue;
                                 group.addCommand(Target.ScaleX, startTime, endTime, startValue, endValue, easing);
                                 group.addCommand(Target.ScaleY, startTime, endTime, startValue, endValue, easing);
                             }
                             break;
                             case 'V': {
-                                float startX = Float.parseFloat(spl.next().toString());
-                                float startY = Float.parseFloat(spl.next().toString());
-                                float endX = spl.hasNext() ? Float.parseFloat(spl.next().toString()) : startX;
-                                float endY = spl.hasNext() ? Float.parseFloat(spl.next().toString()) : startY;
+                                float startX = spl.next().parseSimpleFloat();
+                                float startY = spl.next().parseSimpleFloat();
+                                float endX = spl.hasNext() ? spl.next().parseSimpleFloat() : startX;
+                                float endY = spl.hasNext() ? spl.next().parseSimpleFloat() : startY;
                                 group.addCommand(Target.ScaleX, startTime, endTime, startX, endX, easing);
                                 group.addCommand(Target.ScaleY, startTime, endTime, startY, endY, easing);
                             }
                             break;
                             case 'R': {
-                                float startValue = Float.parseFloat(spl.next().toString());
-                                float endValue = spl.hasNext() ? Float.parseFloat(spl.next().toString()) : startValue;
+                                float startValue = spl.next().parseSimpleFloat();
+                                float endValue = spl.hasNext() ? spl.next().parseSimpleFloat() : startValue;
                                 group.addCommand(Target.Rotation, startTime, endTime, startValue, endValue, easing);
                             }
                             break;
                             case 'M': {
                                 if (commandType.length() == 1) {
-                                    float startX = Float.parseFloat(spl.next().toString());
-                                    float startY = Float.parseFloat(spl.next().toString());
-                                    float endX = spl.hasNext() ? Float.parseFloat(spl.next().toString()) : startX;
-                                    float endY = spl.hasNext() ? Float.parseFloat(spl.next().toString()) : startY;
+                                    float startX = spl.next().parseSimpleFloat();
+                                    float startY = spl.next().parseSimpleFloat();
+                                    float endX = spl.hasNext() ? spl.next().parseSimpleFloat() : startX;
+                                    float endY = spl.hasNext() ? spl.next().parseSimpleFloat() : startY;
                                     group.addCommand(Target.X, startTime, endTime, startX, endX, easing);
                                     group.addCommand(Target.Y, startTime, endTime, startY, endY, easing);
                                 } else {
                                     switch (commandType.get(1)) {
                                         case 'X': {
-                                            float startValue = Float.parseFloat(spl.next().toString());
-                                            float endValue = spl.hasNext() ? Float.parseFloat(spl.next().toString()) : startValue;
+                                            float startValue = spl.next().parseSimpleFloat();
+                                            float endValue = spl.hasNext() ? spl.next().parseSimpleFloat() : startValue;
                                             group.addCommand(Target.X, startTime, endTime, startValue, endValue, easing);
                                         }
                                         break;
                                         case 'Y': {
-                                            float startValue = Float.parseFloat(spl.next().toString());
-                                            float endValue = spl.hasNext() ? Float.parseFloat(spl.next().toString()) : startValue;
+                                            float startValue = spl.next().parseSimpleFloat();
+                                            float endValue = spl.hasNext() ? spl.next().parseSimpleFloat() : startValue;
                                             group.addCommand(Target.Y, startTime, endTime, startValue, endValue, easing);
                                         }
                                         break;
@@ -230,12 +235,12 @@ public class OsbBaseParser {
                             }
                             break;
                             case 'C': {
-                                float startR = Float.parseFloat(spl.next().toString());
-                                float startG = Float.parseFloat(spl.next().toString());
-                                float startB = Float.parseFloat(spl.next().toString());
-                                float endR = spl.hasNext() ? Float.parseFloat(spl.next().toString()) : startR;
-                                float endG = spl.hasNext() ? Float.parseFloat(spl.next().toString()) : startG;
-                                float endB = spl.hasNext() ? Float.parseFloat(spl.next().toString()) : startB;
+                                float startR = spl.next().parseSimpleFloat();
+                                float startG = spl.next().parseSimpleFloat();
+                                float startB = spl.next().parseSimpleFloat();
+                                float endR = spl.hasNext() ? spl.next().parseSimpleFloat() : startR;
+                                float endG = spl.hasNext() ? spl.next().parseSimpleFloat() : startG;
+                                float endB = spl.hasNext() ? spl.next().parseSimpleFloat() : startB;
                                 CommandColor4 commandColor4 = group.addColorCommand(Target.Color, startTime, endTime, easing);
                                 Color4.rgb255(startR, startG, startB, commandColor4.startValue);
                                 Color4.rgb255(endR, endG, endB, commandColor4.endValue);

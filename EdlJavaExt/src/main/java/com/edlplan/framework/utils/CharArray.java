@@ -19,6 +19,10 @@ public class CharArray {
         cache.save(toCache);
     }
 
+    public static CharArray getCachedObject() {
+        return cache.get();
+    }
+
     public char[] ary;
     public int offset;
     public int end;
@@ -49,6 +53,13 @@ public class CharArray {
         charArray.end = 0;
     }
 
+    public void set(String s, int offset, int l) {
+        ary = s.toCharArray();
+        if (l==-1) l = ary.length;
+        this.offset = offset;
+        end = offset + l;
+    }
+
     public int length() {
         return end - offset;
     }
@@ -56,6 +67,67 @@ public class CharArray {
     public char get(int i) {
         return ary[offset + i];
     }
+
+    public boolean contains(char c) {
+        for (int i = offset; i < end; i++) {
+            if (ary[i] == c) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private static int[] powers = new int[]{
+            0,
+            1,
+            10,
+            100,
+            1000,
+            10000,
+            100000,
+            1000000,
+            10000000,
+            100000000,
+            1000000000,
+    };
+    private int parsePlainInt() {
+        if (empty()) return 0;
+        int co = offset;
+        int sign;
+        switch (ary[offset]) {
+            case '-':
+                sign = -1;
+                co++;
+                break;
+            case '+':
+                sign = 1;
+                co++;
+                break;
+            default:
+                sign = 1;
+        }
+        int p = 0;
+        for (int i = end - 1; i >= co; i--) {
+            p += (ary[i] - '0') * powers[end - i];
+        }
+        return p * sign;
+    }
+
+    public int parseSimpleInt() throws NumberFormatException{
+        if (contains('.')) throw new NumberFormatException("error parse " + this + " to int");
+        return parsePlainInt();
+    }
+
+    public float parseSimpleFloat() throws NumberFormatException{
+        if (contains('.')) return Float.parseFloat(this.toString());
+        return parsePlainInt();
+    }
+
+    public double parseSimpleDouble() throws NumberFormatException {
+        if (contains('.')) return Double.parseDouble(this.toString());
+        return parsePlainInt();
+    }
+
 
     public void trimBegin() {
         while (offset < end && (ary[offset] == ' ' || ary[offset] == '\n' || ary[offset] == 'r')) {

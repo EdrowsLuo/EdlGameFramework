@@ -4,6 +4,7 @@ package com.edlplan.edlosbsupport.parser;
 import com.edlplan.edlosbsupport.OsuStoryboard;
 import com.edlplan.framework.utils.CharArray;
 import com.edlplan.framework.utils.U;
+import com.edlplan.framework.utils.functionality.SmartIterator;
 import com.edlplan.framework.utils.io.AdvancedBufferedReader;
 
 import java.io.BufferedReader;
@@ -13,7 +14,10 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.ListIterator;
 import java.util.Map;
 
 /**
@@ -64,7 +68,11 @@ public class OsbFileParser {
                             currentPart = varlines;
                             break;
                         case 'E':
-                            currentPart = eventslines;
+                            if (tr.charAt(2) == 'v') {
+                                currentPart = eventslines;
+                            } else {
+                                currentPart = null;
+                            }
                             break;
                         default:
                             currentPart = null;
@@ -83,39 +91,43 @@ public class OsbFileParser {
                 }
             }
             varlines.clear();
-            StringBuilder eventsString = new StringBuilder();
-            for (String l : eventslines) {
-                int loops = 0;
-                while (l.indexOf('$') >= 0) {
-                    String origin = l;
-                    for (Map.Entry<String, String> v : variables.entrySet()) {
-                        l = l.replace(v.getKey(), v.getValue());
-                    }
-                    if (l.equals(origin)) {
-                        break;
-                    }
-                    loops++;
-                    if (loops > 20) {
-                        throw new OsbParseException("maybe a endless loop QwQ");
-                    }
-                }
-                eventsString.append(l).append('\n');
-            }
-            eventslines.clear();
-            System.gc();
-            CharArray eventsCharArray = new CharArray(eventsString.toString());
-            eventsString = null;
-            System.gc();
-            if (eventsCharArray.length() > 0) {
-                eventsCharArray.end--; //减去末尾的空行
-            }
 
-            CharArray.CharArraySplitIterator spl = eventsCharArray.split('\n');
-            spl.setAutoCache(true);
-            while (spl.hasNext()) {
-                baseParser.appendLine(spl.next());
+            //System.out.println("to apply vars");
+            //LinkedList<String> eventsString = new LinkedList<>();
+            Iterator<String> iterator;// = eventsString.listIterator();
+            if (variables.isEmpty()) {
+                iterator = eventslines.iterator();
+                //eventsString.addAll(eventslines);
+            } else {
+                iterator = SmartIterator.wrap(eventslines.iterator()).applyFunction(l -> {
+                    int loops = 0;
+                    while (l.indexOf('$') >= 0) {
+                        String origin = l;
+                        for (Map.Entry<String, String> v : variables.entrySet()) {
+                            l = l.replace(v.getKey(), v.getValue());
+                        }
+                        if (l.equals(origin)) {
+                            break;
+                        }
+                        loops++;
+                        if (loops > 20) {
+                            throw new RuntimeException("maybe a endless loop QwQ");
+                        }
+                    }
+                    return l;
+                });
             }
-            spl.close();
+            //eventslines.clear();
+            System.gc();
+            //System.out.println("to parse lines");
+
+            CharArray ca = CharArray.getCachedObject();
+            while (iterator.hasNext()) {
+                ca.set(iterator.next(), 0, -1);
+                baseParser.appendLine(ca);
+            }
+            System.gc();
+
         } catch (IOException e) {
             e.printStackTrace();
         }

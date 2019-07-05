@@ -12,6 +12,35 @@ public class OsuStoryboard implements Serializable {
 
     public OsuStoryboardLayer[] layers = new OsuStoryboardLayer[StoryboardSprite.Layer.values().length];
 
+    public String backgroundFile;
+
+    public boolean needReplaceBackground() {
+        if (backgroundFile == null || layers[0] == null) {
+            return false;
+        }
+        for (IStoryboardElement sprite : layers[0].elements) {
+            if (sprite.getClass() == StoryboardSprite.class) {
+                if (backgroundFile.equals(((StoryboardSprite) sprite).spriteFilename)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public void appendStoryboard(OsuStoryboard storyboard) {
+        if (backgroundFile == null) {
+            backgroundFile = storyboard.backgroundFile;
+        }
+        for (OsuStoryboardLayer layer : storyboard.layers) {
+            if (layer != null) {
+                for (IStoryboardElement element : layer.elements) {
+                    if (element instanceof StoryboardSprite)addElement((StoryboardSprite) element);
+                }
+            }
+        }
+    }
+
     public void addElement(StoryboardSprite storyboardElement) {
         if (layers[storyboardElement.layer.ordinal()] == null) {
             layers[storyboardElement.layer.ordinal()] = new OsuStoryboardLayer(storyboardElement.layer);
