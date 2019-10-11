@@ -1,6 +1,7 @@
 package com.edlplan.framework.utils.functionality;
 
 import com.edlplan.framework.utils.interfaces.Function;
+import com.edlplan.framework.utils.interfaces.Getter;
 
 import java.util.Iterator;
 
@@ -19,6 +20,35 @@ public interface SmartIterator<T> extends Iterator<T> {
                 return iterator.next();
             }
         };
+    }
+
+    static <T> SmartIterator<T> ofArray(int count, Function<Integer, T> getter) {
+        return new SmartIterator<T>() {
+
+            int c = -1;
+
+            @Override
+            public boolean hasNext() {
+                return c < count;
+            }
+
+            @Override
+            public T next() {
+                c++;
+                return getter.reflect(c);
+            }
+        };
+    }
+
+    default T selectOne() {
+        T tmp = null;
+        while (hasNext()) {
+            tmp = next();
+            if (tmp != null) {
+                return tmp;
+            }
+        }
+        return tmp;
     }
 
     default SmartIterator<T> applyFilter(Filter<T> filter) {

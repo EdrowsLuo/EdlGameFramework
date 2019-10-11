@@ -57,16 +57,13 @@ public class PlayingLayer {
     @SuppressWarnings("unchecked")
     public void addSprites(Collection<StoryboardSprite> sprites) {
         ary = new LinkedNode[sprites.size()];
-        int idx = 0;
         List<Schedule.Task> tasks = new ArrayList<>();
         for (StoryboardSprite sprite : sprites) {
-            //if (BuildConfig.DEBUG) System.out.println("Schedule " + idx);
             tasks.add(new Schedule.Task(sprite.startTime(), () -> addSpriteToScene(sprite)));
             tasks.add(new Schedule.Task(sprite.endTime(), () -> removeSpriteFromScene(sprite)));
-            idx++;
         }
-        schedule.setTasks(tasks);
 
+        schedule.setTasks(tasks);
         if (preLoad) {
             int i = 0;
             for (StoryboardSprite sprite : sprites) {
@@ -76,14 +73,9 @@ public class PlayingLayer {
                 i++;
             }
         }
-
-        //System.out.println(schedule.getTasks());
     }
 
     protected void addSpriteToScene(StoryboardSprite sprite) {
-        //if (BuildConfig.DEBUG) {
-        //    System.out.println("Add sprite " + sprite);
-        //}
         if (preLoad) {
             ary[sprite.depth].value.onAddedToScene();
         } else {
@@ -92,9 +84,6 @@ public class PlayingLayer {
             playingSprite.onAddedToScene();
             end.insertToPrevious(ary[sprite.depth] = new LinkedNode<>(playingSprite));
         }
-        //if (BuildConfig.DEBUG) {
-        //    System.out.println("Add sprite " + ary[sprite.depth].value);
-        //}
     }
 
     protected void removeSpriteFromScene(StoryboardSprite sprite) {
@@ -107,10 +96,7 @@ public class PlayingLayer {
 
     public void update(double time) {
         schedule.update(time);
-        //ExecutorService executor = executorService.get();
         for (LinkedNode<PlayingSprite> s = first.next; s != end; s = s.next) {
-            //final LinkedNode<PlayingSprite> ss = s;
-            //executor.submit(() -> ss.value.update(time));
             s.value.update(time);
         }
     }

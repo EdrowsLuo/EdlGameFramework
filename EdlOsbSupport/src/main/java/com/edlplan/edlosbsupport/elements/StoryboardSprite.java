@@ -5,6 +5,7 @@ import com.edlplan.framework.math.Anchor;
 import com.edlplan.framework.utils.CharArray;
 
 import java.io.Serializable;
+import java.util.Iterator;
 import java.util.Set;
 
 public class StoryboardSprite extends IStoryboardElement implements Serializable{

@@ -51,7 +51,7 @@ public abstract class PlayingSprite {
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append("Sprite " + sprite).append('\n');
+        stringBuilder.append("Sprite ").append(sprite).append('\n');
         int i = 0;
         for (CommandHandleTimeline l : timelines) {
             stringBuilder.append("\n\nTarget ").append(Target.values()[i]).append('\n');

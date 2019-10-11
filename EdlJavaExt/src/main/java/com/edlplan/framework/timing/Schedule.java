@@ -1,5 +1,6 @@
 package com.edlplan.framework.timing;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Iterator;
@@ -22,8 +23,33 @@ public class Schedule implements TimeUpdateable {
         Object[] a = tasks.toArray();
         Arrays.sort(a, (Comparator) COMPARATOR);
         this.tasks.clear();
+        ArrayList<Task> sameTimeTasks = new ArrayList<>();
+        double current = -999999999;
         for (Object b : a) {
-            this.tasks.add((Task) b);
+            Task task = (Task) b;
+            if (task.time > current + 1) {
+                if (sameTimeTasks.size() > 0) {
+                    Task[] list = sameTimeTasks.toArray(new Task[sameTimeTasks.size()]);
+                    addEvent(current, () -> {
+                        for (Task t : list) {
+                            t.runnable.run();
+                        }
+                    });
+                }
+                sameTimeTasks.clear();
+                sameTimeTasks.add(task);
+                current = task.time;
+            } else {
+                sameTimeTasks.add(task);
+            }
+        }
+        if (sameTimeTasks.size() > 0) {
+            Task[] list = sameTimeTasks.toArray(new Task[sameTimeTasks.size()]);
+            addEvent(current, () -> {
+                for (Task t : list) {
+                    t.runnable.run();
+                }
+            });
         }
     }
 

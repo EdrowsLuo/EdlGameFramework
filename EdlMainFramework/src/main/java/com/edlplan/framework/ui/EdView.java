@@ -377,10 +377,10 @@ public class EdView implements IRunnableHandler, MainCallBack, FrameListener {
     public void setBackgroundColor(Color4 c) {
         ColorDrawable cd = new ColorDrawable(getContext());
         cd.setColor(c);
-        setBackgroundColor(cd);
+        setBackground(cd);
     }
 
-    public void setBackgroundColor(EdDrawable background) {
+    public void setBackground(EdDrawable background) {
         this.background = background;
     }
 
@@ -388,7 +388,7 @@ public class EdView implements IRunnableHandler, MainCallBack, FrameListener {
         RoundedRectDrawable rd = new RoundedRectDrawable(getContext());
         rd.setColor(c);
         rd.setRadius(radius);
-        setBackgroundColor(rd);
+        setBackground(rd);
     }
 
     public EdDrawable getBackground() {
