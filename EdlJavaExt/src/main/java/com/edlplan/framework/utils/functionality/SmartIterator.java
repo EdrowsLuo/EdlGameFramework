@@ -25,7 +25,7 @@ public interface SmartIterator<T> extends Iterator<T> {
     static <T> SmartIterator<T> ofArray(int count, Function<Integer, T> getter) {
         return new SmartIterator<T>() {
 
-            int c = -1;
+            int c = 0;
 
             @Override
             public boolean hasNext() {
@@ -35,7 +35,7 @@ public interface SmartIterator<T> extends Iterator<T> {
             @Override
             public T next() {
                 c++;
-                return getter.reflect(c);
+                return getter.reflect(c - 1);
             }
         };
     }
