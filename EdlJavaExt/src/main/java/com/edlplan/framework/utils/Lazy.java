@@ -1,5 +1,6 @@
 package com.edlplan.framework.utils;
 
+import com.edlplan.framework.utils.interfaces.Consumer;
 import com.edlplan.framework.utils.interfaces.Getter;
 
 /**
@@ -7,6 +8,13 @@ import com.edlplan.framework.utils.interfaces.Getter;
  * @param <T>
  */
 public abstract class Lazy<T> {
+
+    public static void main(String[] args) {
+        Lazy<Integer> lazy = Lazy.create(() -> 100).runOnCreate(System.out::println);
+        System.out.println("then " + lazy.get());
+    }
+
+
     private T data;
 
     protected abstract T initial();
@@ -22,12 +30,34 @@ public abstract class Lazy<T> {
         return data == null;
     }
 
-    public static <T> Lazy<T> create(Getter<T> getter) {
-        return new Lazy<T>() {
-            @Override
-            protected T initial() {
-                return getter.get();
+    public static <T> LazyGetter<T> create(Getter<T> getter) {
+        return new LazyGetter<>(getter);
+    }
+
+    public static class LazyGetter<T> extends Lazy<T> {
+
+        private Getter<T> getter;
+
+        public LazyGetter(Getter<T> getter) {
+            this.getter = getter;
+        }
+
+        public Getter<T> getGetter() {
+            return getter;
+        }
+
+        public LazyGetter<T> runOnCreate(Consumer<T> consumer) {
+            if (!isEmpty()) {
+                throw new IllegalStateException("you can only add consumer to lazy loader when it's not initial");
             }
-        };
+            getter = getter.runOnFinal(consumer);
+            return this;
+        }
+
+        @Override
+        protected T initial() {
+            return getter.get();
+        }
     }
 }
+
