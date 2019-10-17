@@ -107,7 +107,7 @@ public interface SmartIterator<T> extends Iterator<T> {
 
             @Override
             public boolean hasNext() {
-                return t.hasNext();
+                return nextCache != null;
             }
 
             @Override

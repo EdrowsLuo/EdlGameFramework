@@ -30,6 +30,36 @@ public abstract class Lazy<T> {
         return data == null;
     }
 
+    public Lazy<T> runOnCreate(Consumer<T> consumer) {
+        if (!isEmpty()) {
+            throw new IllegalStateException("you can only add consumer to lazy loader when it's not initial");
+        }
+        Lazy<T> p = this;
+        return new Lazy<T>() {
+            @Override
+            protected T initial() {
+                T t = p.initial();
+                consumer.consume(t);
+                return t;
+            }
+        };
+    }
+
+    public Lazy<T> runBeforeCreate(Runnable runnable) {
+        if (!isEmpty()) {
+            throw new IllegalStateException("you can only add runnable to lazy loader when it's not initial");
+        }
+        Lazy<T> p = this;
+        return new Lazy<T>() {
+            @Override
+            protected T initial() {
+                runnable.run();
+                T t = p.initial();
+                return t;
+            }
+        };
+    }
+
     public static <T> LazyGetter<T> create(Getter<T> getter) {
         return new LazyGetter<>(getter);
     }
@@ -44,14 +74,6 @@ public abstract class Lazy<T> {
 
         public Getter<T> getGetter() {
             return getter;
-        }
-
-        public LazyGetter<T> runOnCreate(Consumer<T> consumer) {
-            if (!isEmpty()) {
-                throw new IllegalStateException("you can only add consumer to lazy loader when it's not initial");
-            }
-            getter = getter.runOnFinal(consumer);
-            return this;
         }
 
         @Override
