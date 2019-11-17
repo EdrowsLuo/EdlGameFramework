@@ -60,6 +60,16 @@ public abstract class Lazy<T> {
         };
     }
 
+    public Lazy<T> copy() {
+        Lazy<T> proto = this;
+        return new Lazy<T>() {
+            @Override
+            protected T initial() {
+                return proto.initial();
+            }
+        };
+    }
+
     public static <T> LazyGetter<T> create(Getter<T> getter) {
         return new LazyGetter<>(getter);
     }
