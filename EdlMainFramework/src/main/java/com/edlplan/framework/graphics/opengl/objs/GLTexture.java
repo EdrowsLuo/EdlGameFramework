@@ -65,17 +65,17 @@ public class GLTexture extends AbstractTexture {
 
     public static boolean SCALE_22 = true;
 
-    private int width, height;
+    protected int width, height;
 
-    private int realWidth, realHeight;
+    protected int realWidth, realHeight;
 
-    private float glWidth, glHeight;
+    protected float glWidth, glHeight;
 
-    private int textureId;
+    protected int textureId;
 
-    private boolean recycled = false;
+    protected boolean recycled = false;
 
-    private Quad rawQuad;
+    protected Quad rawQuad;
 
     public GLTexture() {
 
