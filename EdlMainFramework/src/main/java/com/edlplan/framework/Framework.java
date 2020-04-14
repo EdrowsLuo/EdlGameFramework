@@ -6,6 +6,7 @@ import android.os.SystemClock;
 import com.edlplan.framework.utils.FileUtils;
 
 import java.io.File;
+import java.util.HashMap;
 
 public class Framework {
 
@@ -16,6 +17,8 @@ public class Framework {
     private static final int frameworkVersion = 1;
 
     private static final int platform = PLATFORM_ANDROID;
+
+    private static HashMap<String, Object> globalPlatformObject = new HashMap<>();
 
     public static int getFrameworkVersion() {
         return frameworkVersion;

@@ -77,13 +77,14 @@ public class GLTexture extends AbstractTexture {
 
     protected Quad rawQuad;
 
+    protected int glTextureType = GLES20.GL_TEXTURE_2D;
+
     public GLTexture() {
 
     }
 
     @Override
     public IQuad getRawQuad() {
-
         return rawQuad;
     }
 
@@ -93,7 +94,6 @@ public class GLTexture extends AbstractTexture {
 
     @Override
     public GLTexture getTexture() {
-
         return this;
     }
 
@@ -134,7 +134,7 @@ public class GLTexture extends AbstractTexture {
 
     private void bindGl(int i) {
         GLES20.glActiveTexture(i);
-        GLES20.glBindTexture(GLES20.GL_TEXTURE_2D, textureId);
+        GLES20.glBindTexture(glTextureType, textureId);
     }
 
     @Override
