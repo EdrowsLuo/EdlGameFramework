@@ -2,6 +2,7 @@ package com.edlplan.framework.graphics.opengl.batch.v2.object;
 
 import android.opengl.GLES20;
 
+import com.edlplan.framework.graphics.opengl.GLException;
 import com.edlplan.framework.graphics.opengl.GLWrapped;
 import com.edlplan.framework.graphics.opengl.batch.v2.AbstractBatch;
 import com.edlplan.framework.graphics.opengl.batch.v2.BatchEngine;
@@ -37,7 +38,7 @@ public class TextureQuadBatch extends AbstractBatch<ATextureQuad> {
 
     private GLTexture bindTexture;
 
-    private Texture2DShader shader = Texture2DShader.DEFAULT.get();
+    private Texture2DShader shader;
 
     private TextureQuadBatch(int size) {
         if (size > Short.MAX_VALUE / 4 - 10) {
@@ -59,7 +60,6 @@ public class TextureQuadBatch extends AbstractBatch<ATextureQuad> {
         indicesBuffer.put(list);
         indicesBuffer.position(0);
     }
-
 
     @Override
     protected void onBind() {
@@ -102,24 +102,41 @@ public class TextureQuadBatch extends AbstractBatch<ATextureQuad> {
         buffer.limit(maxArySize);
     }
 
+    protected void checkForApply() {
+        if (bindTexture == null || bindTexture.getDefaultTextureShader() == null) {
+            throw new GLException(String.format("texture<%s> or textureShader not found!", bindTexture));
+        }
+    }
+
+    protected void shaderStarter() {
+        shader = bindTexture.getDefaultTextureShader();
+        shader.useThis();
+        shader.loadShaderGlobals(BatchEngine.getShaderGlobals());
+        shader.loadTexture(bindTexture);
+    }
+
+    protected void shaderLoadBuffer() {
+        buffer.position(0);
+        buffer.put(ary, 0, offset);
+        buffer.position(0).limit(offset);
+        shader.loadBuffer(buffer);
+    }
+
+    protected void applyDrawCall() {
+        GLWrapped.drawElements(
+                GLWrapped.GL_TRIANGLES,
+                offset / SIZE_PER_QUAD * 6,
+                GLES20.GL_UNSIGNED_SHORT,
+                indicesBuffer);
+    }
+
     @Override
     protected boolean applyToGL() {
         if (offset != 0) {
-            shader.useThis();
-            shader.loadShaderGlobals(BatchEngine.getShaderGlobals());
-            shader.loadTexture(bindTexture);
-
-            buffer.position(0);
-            buffer.put(ary, 0, offset);
-            buffer.position(0).limit(offset);
-
-            shader.loadBuffer(buffer);
-
-            GLWrapped.drawElements(
-                    GLWrapped.GL_TRIANGLES,
-                    offset / SIZE_PER_QUAD * 6,
-                    GLES20.GL_UNSIGNED_SHORT,
-                    indicesBuffer);
+            checkForApply();
+            shaderStarter();
+            shaderLoadBuffer();
+            applyDrawCall();
             return true;
         } else {
             return false;

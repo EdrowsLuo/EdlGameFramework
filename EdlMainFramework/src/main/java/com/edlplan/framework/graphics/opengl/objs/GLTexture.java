@@ -10,6 +10,7 @@ import android.opengl.GLUtils;
 
 import com.edlplan.framework.MContext;
 import com.edlplan.framework.graphics.opengl.GLWrapped;
+import com.edlplan.framework.graphics.opengl.shader.advance.Texture2DShader;
 import com.edlplan.framework.math.Color4;
 import com.edlplan.framework.math.IQuad;
 import com.edlplan.framework.math.Quad;
@@ -88,8 +89,12 @@ public class GLTexture extends AbstractTexture {
         return rawQuad;
     }
 
-    protected void endCreate() {
+    protected void buildRawQuad() {
         rawQuad = RectF.xywh(0, 0, glWidth, glHeight).toQuad();
+    }
+
+    protected void endCreate() {
+        buildRawQuad();
     }
 
     @Override
@@ -154,9 +159,12 @@ public class GLTexture extends AbstractTexture {
 
     @Override
     protected void finalize() throws Throwable {
-
         if (!recycled) delete();
         super.finalize();
+    }
+
+    public Texture2DShader getDefaultTextureShader() {
+        return Texture2DShader.DEFAULT.get();
     }
 
     public static GLTexture createGPUTexture(int w, int h) {
