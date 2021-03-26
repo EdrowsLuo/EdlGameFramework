@@ -14,7 +14,8 @@ public class StoryboardSprite extends IStoryboardElement implements Serializable
         Background(3, true, true),
         Fail(2, false, true),
         Pass(1, true, false),
-        Foreground(0, true, true);
+        Foreground(0, true, true),
+        Overlay(Integer.MIN_VALUE, true, true);
         private final int depth;
         private final boolean enableWhenPassing;
         private final boolean enableWhenFailing;
@@ -39,6 +40,8 @@ public class StoryboardSprite extends IStoryboardElement implements Serializable
                     case 'F':
                         char c = s.get(1);
                         return c == 'a' ? Fail : Foreground;
+                    case 'O':
+                        return Overlay;
                     default:
                         return null;
                 }
